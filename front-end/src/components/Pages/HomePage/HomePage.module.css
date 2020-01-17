@@ -1,0 +1,360 @@
+.appBannerimg {
+  background: url(../../../assets/images/banner-img.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.appBannerimg h2 {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.appBannerimg p {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.95);
+  width: 640px;
+  padding: 38px 0px;
+}
+
+.appSavebtn {
+  float: right;
+  margin-top: 40px;
+}
+
+.appCancelbtn { 
+  width: 100px !important;
+  margin-top: 40px;
+}
+
+.appSavebtn button {
+  background: #0261f0;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+}
+
+figcaption {
+  padding: 275px 50px 50px;
+  position: relative;
+}
+
+.appContainerFigure {
+  max-width: 1580px !important;
+}
+
+.appBannerimg button {
+  border-radius: 6px !important;
+  padding: 18px 19px;
+  border: 0;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+}
+
+.appStartbtn {
+  margin: 0 10px;
+}
+
+.appStartbtn:first-child {
+  background: #03f0ff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+  color: #026268;
+  font-weight: 700;
+}
+
+.appStartbtn:last-child {
+  background: #034fc2;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  font-weight: 700;
+  color: #fff;
+}
+
+figcaption .appJoinbtn {
+  display: flex;
+  justify-content: center;
+  padding-top: 139px;
+}
+
+figcaption .appJoinbtn button {
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 100px !important;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+  padding: 3px 19px;
+}
+
+figcaption .appJoinbtn button:hover {
+  background: #fff;
+  color: #2d2d2d;
+}
+
+.appCardsection {
+  text-align: center;
+}
+
+.appCardsection .appCardblock {
+  background: rgba(224, 237, 246, 0.2);
+  border: 1px solid #e0edf6;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 79px 0;
+}
+
+.appCardcontainer {
+  max-width: 1580px !important;
+}
+
+.appSelldigital {
+  background: url("../../../assets/images/bgmain.svg");
+  background-repeat: no-repeat;
+  height: 420px;
+  width: 100%;
+  background-size: 100%;
+}
+
+.appSellcontent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.appSellcontent a {
+  color: #2377f3;
+  font-weight: 700;
+}
+
+.appSellcontent a img {
+  padding-left: 8px;
+}
+
+.appSellimg img {
+  padding-top: 40px;
+}
+
+.appProservicecontainer {
+  max-width: 1470px !important;
+  margin-bottom: 50px;
+}
+
+.appProservicecontainer p {
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  color: #4e4e4e;
+  width: 360px;
+}
+
+.appProservice {
+  padding: 84px 0;
+}
+
+.appViewsection h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+}
+
+.appViewsection a {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2377f3;
+}
+
+.appViewsection a img {
+  margin-left: 5px;
+}
+
+.appMainheadingfield {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.appGuidefield img {
+  width: 100%;
+}
+
+.appLabelfiedl {
+  font-size: 20px;
+  line-height: 24px;
+  padding-top: 10px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #2d2d2d;
+}
+
+@media screen and (max-width: 767px) {
+  .appBannerimg {
+    background-size: 620px 1030px;
+    border-radius: 0px 0 100px 0;
+  }
+
+  figure figcaption {
+    padding: 45px 15px 0;
+  }
+
+  figure figcaption h2 {
+    font-size: 36px !important;
+    line-height: 42px !important;
+  }
+
+  figure figcaption p {
+    width: 100% !important;
+    line-height: 38px !important;
+  }
+
+  figcaption .appJoinbtn {
+    padding-top: 0;
+    position: relative;
+    top: 22px;
+  }
+
+  .appCardsection {
+    margin-top: 50px;
+  }
+  .appBtnblock {
+    display: grid !important;
+  }
+
+  .appStartbtn {
+    margin: 10px 0;
+  }
+
+  .appCardcontainer .appCardblock {
+    padding: 40px 0;
+    margin-bottom: 15px;
+  }
+
+  .appSelldigital {
+    background: url("../../../assets/images/mobbgimg.svg");
+    background-repeat: no-repeat;
+    height: auto;
+    background-size: cover;
+    padding: 0px 0 330px;
+  }
+
+  .appSellcontent {
+    padding-top: 120px;
+  }
+
+  .appProservice {
+    padding-top: 15px;
+  }
+
+  .appLabelfiedl {
+    text-align: left;
+    font-size: 18px;
+    padding: 10px 0 30px 0;
+  }
+
+  .appStartmodal > div > div p {
+    padding: 15px !important;
+  }
+
+  .appModalrow > div {
+    padding-bottom: 65px;
+  }
+  .appModalrow {
+    padding-bottom: 0px !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  figcaption {
+    padding: 25px 50px 50px;
+  }
+
+  .appContainerFigure h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .appBannerimg p {
+    padding: 15px 0 !important;
+  }
+
+  figcaption .appJoinbtn {
+    padding-top: 39px;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1500px) {
+  figcaption {
+    padding: 95px 50px 50px;
+  }
+}
+
+.appStartmodal > div {
+  max-width: 700px !important;
+  border-radius: 3px 3px 0px 0px;
+  border-top: 9px #6aa1f2 solid;
+}
+
+.appStartmodal > div > div {
+  border: 0;
+  border-radius: 0;
+  text-align: center;
+}
+
+.appStartmodal > div > div h2 {
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.03em;
+  color: #033c93;
+  padding: 20px 0;
+}
+
+.appStartmodal > div > div p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #707070;
+  padding: 0 145px;
+}
+
+.appStartmodal > div > div span {
+  width: 100%;
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.appModalrow {
+  padding: 50px 0 80px;
+}
+
+.appImgthumbnail {
+  background: #ffffff;
+  border: 2px #e0edf6 solid;
+  border-radius: 9px;
+  padding: 25px 0;
+}
+
+.appSellingpart{
+  color: gray;
+}
+
+.appSellingpart{
+  border-color: #033c93;
+}

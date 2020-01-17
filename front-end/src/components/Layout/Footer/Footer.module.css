@@ -1,0 +1,104 @@
+.appFooterwrapper {
+  background: linear-gradient(23.92deg, #0985BB 14.98%, #02E2F0 100.12%);
+/*  margin-top: 80px;*/
+  padding: 80px 0 40px;
+}
+
+
+.appFootercontainer {
+  max-width: 1240px !important;
+}
+
+.appFootercontainer span {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  padding-left: 15px;
+}
+
+.appJoincommunity {
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  padding-top: 10px;
+}
+
+.appJoincommunity ul {
+  padding: 16px 0 0 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+
+.appJoincommunity ul li {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.appHeadingfooter h3 {
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  padding-bottom: 11px;
+  font-weight: 700;
+}
+
+
+.appHeadingfooter ul {
+  padding: 0;
+  list-style-type: none;
+
+}
+
+
+.appHeadingfooter ul li a {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+}
+
+
+.appFootersublink {
+  padding-top: 36px !important;
+}
+
+
+.appJoincommunitysection {
+  float: left;
+}
+
+.appHeadingfooter {
+  width: 20% !important;
+  float: left;
+}
+
+
+ .appFooterrow {
+    flex-direction: row-reverse;
+  }
+
+.appJoincommunity li:nth-child(2) img {
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .appHeadingfooter {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .appFooterrow {
+    padding-left: 15px;
+  }
+
+
+}

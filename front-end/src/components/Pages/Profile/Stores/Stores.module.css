@@ -1,0 +1,435 @@
+.myProfileRow .appThumbnail {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.appViewprofile .appMediasection > img {
+  border-radius: 10px;
+  height: 230px;
+  width: 230px;
+  object-fit: cover;
+}
+
+.appMediafigure >img{
+  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.storeListViewHighlight {
+  background: rgba(224, 237, 246, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  margin-bottom: 30px;
+}
+
+.storeListViewHighlight .appMediabody {
+  padding: 10px 0 0;
+}
+
+.storeListViewHighlight .appMediafigure {
+  width: 700px;
+  max-width: 100%;
+}
+
+.storeListViewHighlight .appMediabody > p {
+  height: 50px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.storeListViewHighlight h5 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+}
+
+.storeListViewHighlight h5 span {
+  color: #0261f0;
+}
+
+.storeListViewHighlight p {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #707070;
+  margin-bottom: 0;
+  padding-bottom: 14px;
+}
+
+.storeListViewHighlight h6 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+}
+
+.myProfileRow {
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  padding: 15px 0;
+  margin: 0 0 20px 0;
+}
+
+.myProfileRow .appThumbnail {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  padding: 15px 0;
+}
+
+.appStoreheading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appStoreheading span {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+}
+
+.appSearchblock {
+  background: rgba(224, 237, 246, 0.5);
+  padding: 15px;
+}
+
+.appSearchinput {
+  position: relative;
+  width: 50%;
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 0 !important;
+}
+
+.appThumbnail .appSearchinputfield {
+  background: #ffffff;
+  border: 2px solid #e0edf6;
+  border-radius: 3px;
+}
+
+.appThumbnail .appSearchinputfield::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #727272;
+}
+
+.appSearchinput:after {
+  background: url("../../../../assets/images/search.svg");
+  width: 13px;
+  height: 13px;
+  content: "";
+  float: right;
+  position: absolute;
+  right: 13px;
+  top: 12px;
+}
+
+.appItemfield {
+  padding: 0 15px;
+}
+
+.appItemfield:first-child {
+  padding-left: 0;
+}
+
+.appItemfield:last-child {
+  padding-right: 0;
+}
+
+.appItemfield img {
+  width: 100%;
+  max-height: 230px;
+  object-fit: cover;
+  min-height: 230px;
+}
+
+.appStoressearch {
+  padding: 45px 0;
+}
+
+.appStorescontainer {
+  max-width: 970px !important;
+}
+
+.appItemfield span {
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 100px;
+  position: absolute;
+  bottom: 60px;
+  right: 30px;
+  padding: 4px 14px;
+}
+
+.appLabelfiedl {
+  padding: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .appThumbnail {
+    padding: 0 !important;
+  }
+
+  .appSearchinput {
+    width: 100%;
+  }
+
+  .appEmptyStorescontent button {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .appEmptyStorescontent p {
+    padding: 20px;
+  }
+
+  .storeListViewHighlight {
+    margin-top: 20px;
+  }
+
+  .storeListViewHighlight .appMediafigure {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .appMediabody h5 {
+    padding: 15px;
+  }
+
+  .appMediabody h6 {
+    font-size: 16px;
+  }
+
+  .appViewprofile {
+    padding: 15px !important;
+  }
+
+  .appProfilemedia .appBadgesfield {
+    padding: 0;
+  }
+
+  .appProfilemedia {
+    max-width: 100% !important;
+  }
+
+  .appProfilemedia h5 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .appProfilemedia p {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: #707070;
+  }
+
+  .appProfilemedia .appBadgesfield p {
+    font-weight: 700;
+  }
+
+  .appOwnerfield {
+    font-size: 14px;
+  }
+
+  .appStorefield {
+    font-size: 14px;
+  }
+
+  .appStorefield b {
+    font-size: 14px;
+  }
+
+  .appItemdescription span {
+    font-size: 14px;
+  }
+}
+
+.appEmptyshoppingcart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 80px 0;
+}
+
+.appEmptyStorescontent {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.appEmptyStorescontent h6 {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+
+.appEmptyStorescontent p {
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #5b5b5b;
+  padding: 14px 0;
+}
+
+.appEmptyStorescontent button {
+  background: #0261f0;
+  border-radius: 3px;
+  padding: 8px 30px;
+  margin: 20px 0 0;
+}
+
+.appViewprofile {
+  padding: 30px 64px;
+}
+
+.appOwnerfield {
+  float: left;
+  line-height: 28px;
+}
+
+.appOwnerfield span {
+  color: #707070;
+}
+
+.appBadgesfield {
+  float: left;
+  padding-left: 20px;
+}
+
+.appBadgesfield img {
+  float: left;
+}
+
+.appBadgesfield p {
+  float: left;
+  line-height: 32px;
+  padding-left: 7px;
+  margin-bottom: 0;
+}
+
+.appProfilemedia {
+  max-width: 75%;
+}
+
+.appItemdescription span {
+  color: #707070;
+}
+
+.appItemdescription > p {
+  height: 50px;
+  overflow: hidden;
+}
+
+.appStorefield {
+  display: inline-block;
+  width: 100%;
+}
+
+.appStorefield span {
+  color: #707070;
+  padding-right: 10px;
+}
+
+.appStorefield b {
+  padding-left: 10px;
+}
+
+.appStorefield h6 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+  padding-top: 7px;
+}
+
+.appMediasection {
+  margin-bottom: 30px;
+}
+
+.appMediasection :hover {
+  cursor: pointer;
+}
+
+.appDataItem :hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .appViewprofile {
+    padding: 15px;
+  }
+
+  .appBadgesfield {
+    padding-left: 0;
+  }
+}
+
+.demo:empty {
+  margin: auto;
+  width: 500px;
+  height: 600px; /* change height to see repeat-y behavior */
+  
+  background-image:
+    radial-gradient( circle 50px at 50px 50px, lightgray 99%, transparent 0 ),
+    linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80% ),
+    linear-gradient( lightgray 20px, transparent 0 ),
+    linear-gradient( lightgray 20px, transparent 0 ),
+    linear-gradient( lightgray 20px, transparent 0 ),
+    linear-gradient( lightgray 20px, transparent 0 );
+
+  background-repeat: repeat-y;
+
+  background-size:
+    100px 200px, /* circle */
+    50px 200px, /* highlight */
+    150px 200px,
+    350px 200px,
+    300px 200px,
+    250px 200px;
+
+  background-position:
+    0 0, /* circle */
+    0 0, /* highlight */
+    120px 0,
+    120px 40px,
+    120px 80px,
+    120px 120px;
+
+  animation: shine 1s infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position:
+      0 0,
+      100% 0, /* move highlight to right */
+      120px 0,
+      120px 40px,
+      120px 80px,
+      120px 120px;
+  }
+}

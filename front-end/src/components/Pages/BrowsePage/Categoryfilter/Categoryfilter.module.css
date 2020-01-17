@@ -1,0 +1,97 @@
+.appFilterblock h3 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+  padding-bottom: 20px;
+}
+
+.appCustomcheck {
+  position: relative;
+  float: left;
+  padding-right: 7px;
+}
+.appCustomcheck :hover{
+  cursor: pointer;
+}
+.appCheckboxfield {
+  position: absolute;
+  opacity: 0;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+}
+.appCheckboxfield + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  background: #FFFFFF;
+  border: 1.5px solid #E0EDF6;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
+.appCheckboxfield + label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 21px;
+  height: 21px;
+  background: white;
+  position: absolute;
+  border-radius: 3px;
+}
+
+
+.appCheckboxfield:checked + label:before {
+  background :#034FC2;
+}
+.appCheckboxfield:disabled + label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+.appCheckboxfield:disabled + label:before {
+  box-shadow: none;
+  background: #ddd;
+}
+.appCheckboxfield:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.appFilterblock form  p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+  float: left;
+  line-height: 30px;
+  padding-left: 5px;
+  margin-bottom: 0;
+}
+
+.appFormgroup {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+
+.appBlockcategory {
+  margin-bottom: 20px;
+}
+

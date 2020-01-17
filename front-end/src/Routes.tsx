@@ -6,10 +6,10 @@ import BrowsePage from './components/Pages/BrowsePage';
 import Profile from './components/Pages/Profile';
 import ForgotPassword from './components/Authentication/ForgotPassword';
 import ConfimForgotPassword from './components/Authentication/ConfimForgotPassword';
-import CreateStore from './components/Pages/Store/CreateStore';
+import AddPackage from './components/Pages/Package/AddPackage';
 import { PrivateRoute } from './components/PrivateComponents/PrivateRoute';
 import { PrivateRouteForgotPassword } from './components/PrivateComponents/PrivateRouteForgotPassword';
-import ViewStore from './components/Pages/Store/ViewStore';
+import ViewStore from './components/Pages/Package/ViewStore';
 
 
 history.listen(function (location) {
@@ -27,7 +27,7 @@ const createRoutes = () => (
       <PrivateRouteForgotPassword path="/confirm-forgot-password" exact component={ConfimForgotPassword} />
       <Route path="/item" exact component={HomePage} />
       <Route path="/profile" component={Profile} />
-      <Route path="/createstore" exact component={CreateStore} />
+      <Route path="/add-package" exact component={AddPackage} />
       <Redirect from="/*" to="/home" />
     </Switch>
   </Router>

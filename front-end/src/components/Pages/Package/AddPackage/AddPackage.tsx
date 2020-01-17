@@ -31,7 +31,7 @@ import { INVALID_IMAGE, INVALID_CATEGORY, INVALID_STORE_DESCRIPTION, NAVIGATION_
 
 
 
-class CreateStore extends React.Component<any, CreateStoredataState> {
+class AddPackage extends React.Component<any, CreateStoredataState> {
 
   constructor(props) {
     super(props);
@@ -149,19 +149,6 @@ class CreateStore extends React.Component<any, CreateStoredataState> {
     this.props.handleMetadataChange(rows);
   }
 
-  handleCheckClick = (event: any): void => {
-    if (!event.target.checked) {
-      this.props.handleMintSize(1);
-    }
-    this.setState({ enableBatchMinting: !this.state.enableBatchMinting },
-      () => { this.handleValidation() });
-  }
-
-  handleMintSize = (value) => {
-    this.setState({ mintSize: value }, () => { this.handleValidation() })
-    this.props.handleMintSize(value);
-  }
-
   handleValidation = () => {
     const { errors } = this.state;
     let isValid = true;
@@ -185,9 +172,6 @@ class CreateStore extends React.Component<any, CreateStoredataState> {
       }
     })
     return isValid;
-  }
-
-  componentDidMount() {
   }
 
   componentDidUpdate(prevProps) {
@@ -214,8 +198,8 @@ class CreateStore extends React.Component<any, CreateStoredataState> {
           <div className={styles.appSmartcontract}>
             <Container className={styles.appSmartcontainer}>
               <Breadcrumb>
-                <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-                <Breadcrumb.Item active>Create a Store</Breadcrumb.Item>
+                <Breadcrumb.Item href="/home">Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>Create a Package</Breadcrumb.Item>
               </Breadcrumb>
               <div className={styles.appCustomcontainer}>
                 <div className={styles.appSmartcreate}>
@@ -331,13 +315,13 @@ const mapDispatchToProps: PropsFromDispatch = {
   uploadFile: uploadFileAction,
   verifyFileUpload: verifyFileUploadAction,
   verifyFileUploadSuccess: verifyFileUploadSuccessAction,
-  handleImageChange: selectedKey => change('CreateStoreForm', 'image_url', selectedKey),
-  handleEditorStateChange: data => change('CreateStoreForm', 'description', data)
+  handleImageChange: selectedKey => change('CreatePackageForm', 'image_url', selectedKey),
+  handleEditorStateChange: data => change('CreatePackageForm', 'description', data)
 }
 
 const formConnected = reduxForm({
-  form: 'CreateStoreForm'
-})(CreateStore);
+  form: 'CreatePackageForm'
+})(AddPackage);
 
 export default connect(
   mapStateToProps,

@@ -2,6 +2,7 @@ package com.need82.packag.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,7 @@ public class PackageDetails {
 	private String itenary;
 
 	@Column
-	private String details;
+	private String description;
 
 	@Column
 	private Integer day;
@@ -39,7 +40,7 @@ public class PackageDetails {
 	@Column
 	private String imageUrl;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private PackageModel packageModel;
 
 	@Column(nullable = true)
@@ -63,8 +64,8 @@ public class PackageDetails {
 		return itenary;
 	}
 
-	public String getDetails() {
-		return details;
+	public String getDescription() {
+		return description;
 	}
 
 	public Integer getDay() {
@@ -87,8 +88,8 @@ public class PackageDetails {
 		this.itenary = itenary;
 	}
 
-	public void setDetails(String details) {
-		this.details = details;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void setDay(Integer day) {
@@ -113,7 +114,7 @@ public class PackageDetails {
 
 	@Override
 	public String toString() {
-		return "PackageDetails [id=" + id + ", itenary=" + itenary + ", details=" + details + ", day=" + day
+		return "PackageDetails [id=" + id + ", itenary=" + itenary + ", description=" + description + ", day=" + day
 				+ ", imageUrl=" + imageUrl + ", packageModel=" + packageModel + ", price=" + price + ", createdAt="
 				+ createdAt + ", updatedAt=" + updatedAt + "]";
 	}

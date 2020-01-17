@@ -3,6 +3,7 @@ package com.need82.packag.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ public class PackageModel {
 	@Column
 	private String imageUrl;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<PackageDetails> details;
 
 	@Column(nullable = false, updatable = false)

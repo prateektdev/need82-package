@@ -55,12 +55,7 @@ class Header extends React.Component<any, any> {
       forgotPasswordModal: false,
       confirmForgotPasswordModal: false,
       signUpModal: false,
-      confirmSignUpModal: false,
-      account: '',
-      marketplace: '',
-      isOpen: false,
-      showModal: false,
-      showIdentifyModal: false
+      confirmSignUpModal: false
     }
   }
 
@@ -80,22 +75,6 @@ class Header extends React.Component<any, any> {
 
   handleActionResponse = (key: string, status: boolean) => {
     this.setState({ [key]: status })
-  }
-
-  showItemModal = () => {
-    this.setState({ showModal: true, showIdentifyModal: false });
-  }
-
-  handleCloseItemModal = () => {
-    this.setState({ showModal: false });
-  }
-
-  handleIdentifyItemModel = () => {
-    this.setState({ showModal: false, showIdentifyModal: true });
-  }
-
-  handleCloseIdentifyItemModel = () => {
-    this.setState({ showIdentifyModal: false });
   }
 
   componentDidMount() {
@@ -134,20 +113,6 @@ class Header extends React.Component<any, any> {
     history.push(path);
   }
 
-  handleBrowse = () => {
-    history.push('/')
-    history.push('browse/category/Collectibles');
-  }
-
-  handleWallet = (event: any) => {
-    this.setState({ isOpen: true });
-  }
-
-  handleCloseWalletModal = () => {
-    this.setState({ isOpen: false });
-  }
-
-
 
   render() {
     const { signInModal, signUpModal, confirmSignUpModal } = this.state;
@@ -182,19 +147,8 @@ class Header extends React.Component<any, any> {
             <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.apphamburgericon} />
             <Navbar.Collapse id="basic-navbar-nav" className={styles.appmenufield}>
               <Nav className="ml-auto">
-                <Nav.Link onClick={this.showItemModal} >Sell</Nav.Link>
-                <Nav.Link onClick={() => this.handleBrowse()} >Browse</Nav.Link>
-                <Nav.Link onClick={() => this.handleRoute('createstore')}>Create a Store</Nav.Link>
-                {
-                  this.state.isLoggedIn &&
-
-                  <Nav.Link >
-                    <button
-                      onClick={(event) => this.handleWallet(event)}
-                      className="btn btn-primary">
-                      Connect a Wallet
-                      </button>
-                  </Nav.Link>}
+                <Nav.Link onClick={() => this.handleRoute('add-package')}>Create a Store</Nav.Link>
+               
                 {!this.state.isLoggedIn && <Nav.Link onClick={() => this.showModal('signInModal')} className={styles.appLogin}>Login</Nav.Link>}              </Nav>
               {!this.state.isLoggedIn && <Button variant="primary" onClick={() => this.showModal('signUpModal')}>Create Account</Button>}
               {this.state.isLoggedIn &&

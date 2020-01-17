@@ -31,15 +31,9 @@ public class PackageServiceImpl implements PackageService {
 				Optional<PackageModel> packageList = packageRepo.findById(packageObject.getId());
 				if (packageList.isPresent()) {
 					packageModel = packageList.get();
-					for (PackageDetails detail : packageObject.getDetails()) {
-						packageDetailsRepo.save(detail);
-					}
 					PackageModel packageResponse = packageRepo.save(packageObject);
 					return new BaseResponse(true, "Updated", Arrays.asList(packageResponse));
 				}
-			}
-			for (PackageDetails detail : packageObject.getDetails()) {
-				packageDetailsRepo.save(detail);
 			}
 			PackageModel packageResponse = packageRepo.save(packageObject);
 			return new BaseResponse(true, "Saved", Arrays.asList(packageResponse));

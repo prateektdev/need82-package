@@ -1,0 +1,71 @@
+.appLeftfield {
+  background: #E0EDF6;
+  display: flex;
+  flex-direction: column;
+}
+
+.appLeftfield h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  color: #7A93A3;
+  padding: 141px 69px;
+  height: 60%;
+
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .appLeftfield {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .appLeftfield img {
+    display: none;
+  }
+
+  .appLeftfield h3 {
+    height: auto;
+    padding: 25px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .appLeftfield h3:after {
+    content: '';
+    float: left;
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-right: 570px solid #fff;
+    border-bottom: 18px solid transparent;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+  }
+
+
+  .appMiddlesection form {
+    width: 100%;
+  }
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+.appLeftfield h3 {
+  padding: 141px 9px;
+}
+
+.appLeftfield img {
+	max-width: 100%;
+}
+
+}

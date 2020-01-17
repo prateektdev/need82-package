@@ -1,0 +1,184 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+body .appHeadercontainer {
+  max-width: 1580px;
+}
+
+
+
+
+.App-link {
+  color: #09d3ac;
+}
+
+.appselectfield {
+
+  background: rgba(224, 237, 246, 0.4);
+  border: 2px solid #E0EDF6;
+  border-radius: 3px;
+  width: auto !important;
+}
+
+
+.appselectfield input {
+
+  background: rgba(224, 237, 246, 0.4);
+  border: 2px solid #E0EDF6;
+  border-radius: 3px;
+}
+
+
+.appselectfield input::placeholder {
+  color: #727272;
+}
+
+
+.appselectfield button {
+  border: 0;
+  color: #2D2D2D;
+  position: relative;
+  padding: 0 33px 0 20px;
+}
+
+
+.appselectfield button:after {
+  content: '';
+  background: url(../../../assets/images/arrow.svg);
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 8px;
+  border: 0;
+  position: absolute;
+  right: 7px;
+  bottom: 13px;
+}
+
+
+body nav {
+  padding: 10px 0 !important;
+  border: 0;
+}
+
+
+body nav .appmenufield a {
+  padding: 8px 30px !important;
+  color: #2D2D2D !important;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+}
+
+body nav .appmenufield .appLogin {
+  color: #0261F0 !important;
+}
+
+
+
+body nav .appmenufield a.btn {
+  color: #fff !important;
+}
+
+.appInternalmenu {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .appselectfield {
+    width: 65% !important;
+  }
+
+  .appDropdownbtn button {
+    text-indent: -9999em;
+    padding: 0 16px;
+  }
+
+  .apphamburgericon {
+    border: 0 !important;
+  }
+
+
+  .apphamburgericon span {
+    background: url('../../../assets/images/hamburger.svg') !important;
+    width: 22px;
+    height: 20px;
+
+  }
+
+  .appDesktoplink {
+    display: none;
+  }
+
+  .appInternalmenu {
+    display: block;
+  }
+
+  .appInternalcontainer {
+    border: 0;
+  }
+
+
+
+  body nav .appmenufield {
+    text-align: left;
+    position: absolute;
+    left: -15px;
+    top: 0;
+    background: #fff;
+    width: 100%;
+    z-index: 99;
+    padding: 0;
+     transition: all 0.5s ease;
+  }
+
+  body nav .appmenufield a {
+    padding: 14px !important;
+  }
+
+  body nav .appmenufield button {
+    margin-left: 14px;
+  }
+
+  .appInternalmenu {
+    border-top: 0.75px solid #D6DEE3;
+    padding: 20px 0;
+    margin-top: 20px;
+  }
+
+  .appCardcontainer {
+    margin-top: 70px;
+  }
+}
+
+.appMyaccount .appselectfield {
+  background: none;
+  border: 0;
+}
+
+
+.appMyaccount .appselectfield button:after {
+  bottom: 7px;
+}
+
+.appMyaccount .appselectfield > div > div {
+  right: 0px;
+  left: inherit !important;
+  top: 30px;
+}

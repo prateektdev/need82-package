@@ -1,0 +1,292 @@
+.appPaymentoption {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+.appPaymentoption > div {
+  max-width: 1000px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+
+}
+
+
+.appPaymentoption > div > div {
+  padding: 25px 0;
+}
+
+.appPaymentoption h3 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #033C93;
+  text-align: center;
+}
+
+
+.appPaymentoption p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #707070;
+  text-align: center;
+}
+
+
+.appimagefield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appimagefield a {
+  background: rgba(224, 237, 246, 0.4);
+  float: left;
+  width: 116px;
+  height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.apppaymentsection {
+  margin: 37px 0 0;
+}
+
+@media screen and (max-width: 767px) {
+  .appPaymentoption > div > div {
+    border-top: 9.68px #6AA1F2 solid;
+    border-radius: 3px 3px 0px 0px;
+
+  }
+}
+.appRow {
+  margin: 0 !important;
+  height: 100vh;
+}
+
+.error {
+  color: red;
+}
+
+.appSignin a {
+  color: '#02601f0';
+  padding-left: 10px;
+}
+
+.appSignin {
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 60px;
+}
+
+.appRightfield {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.appRightfield .appMiddlesection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.appRightfield .appMiddlesection label {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+}
+
+.appMiddlesection form {
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+}
+
+.appMiddlesection form input[type='text'] {
+  /* border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px #E0EDF6 solid;
+  border-radius: 0;
+  box-shadow: none; */
+}
+
+.appMiddlesection h2 {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+  padding-bottom: 60px;
+}
+
+.appMiddlesection form a {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #0261F0;
+  padding: 30px 0;
+}
+
+.appLoginbtn {
+  width: 40%;
+}
+
+.appLoginbtn button {
+  width: 100%;
+  background: #034FC2;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  padding: 15px 0;
+}
+
+.appSigninbottom {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .appLoginbtn {
+    width: 100%;
+  }
+  .appSignin {
+    display: none;
+  }
+  .appSigninbottom {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .appRightfield {
+    height: auto;
+  }
+  .appMiddlesection form {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .appMiddlesection {
+    width: 100% !important;
+  }
+  .appMiddlesection form {
+    width: 100%;
+  }
+}
+
+.appCustomcheck {
+  position: relative;
+  float: left;
+  padding-right: 7px;
+}
+
+.appCheckboxfield {
+  position: absolute;
+  opacity: 0;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+}
+
+.appCheckboxfield+label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  background: #FFFFFF;
+  border: 1.5px solid #E0EDF6;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+}
+
+.appCheckboxfield+label:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 20px;
+  height: 20px;
+  background: white;
+}
+
+.appCheckboxfield:checked+label:before {
+  background: #034FC2;
+}
+
+.appCheckboxfield:disabled+label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+
+.appCheckboxfield:disabled+label:before {
+  box-shadow: none;
+  background: #ddd;
+}
+
+.appCheckboxfield:checked+label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  background: white;
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.appMiddlesection form input[type='password'] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px #E0EDF6 solid;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.appMiddlesection form input[type='email'] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px #E0EDF6 solid;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.appShowfield {
+  position: relative;
+}
+
+.appShowfield .appeyeblock{
+  position: absolute;
+  right: 5px;
+  bottom: 33px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.termsConditions {
+  margin-top: 13px;
+}

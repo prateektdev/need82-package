@@ -1,0 +1,83 @@
+.appViewsection {
+  padding-top: 80px;
+}
+
+.appViewsection h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+}
+
+
+.appViewsection a {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #2377F3;
+}
+
+
+.appViewsection a img {
+  margin-left: 5px;
+}
+
+
+.appMainheadingfield {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+}
+
+
+.appItemfield h4 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+  padding-top: 10px;
+}
+
+
+.appItemfield h3 {
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+}
+
+.appLabelfiedl {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  padding: 10px 0;
+}
+
+.appLabelfiedl span {
+  color: #707070;
+}
+
+
+.appItemfield {
+  padding: 0 15px;
+}
+
+.appItemfield img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+.appItemfield:hover{
+  cursor: pointer;
+}
+
+li:first-child .appItemfield {
+  padding-left: 0;
+}
+
+

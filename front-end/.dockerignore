@@ -1,0 +1,4 @@
+front-end/node_modules/
+*-error.log
+yarn.lock
+package-lock.json

@@ -1,0 +1,180 @@
+.appStartmodal {
+  padding-right: 0 !important;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.appStartmodal > div {
+  max-width: 1175px;
+}
+
+
+.appStartmodal > div > div > div {
+  padding: 0;
+}
+
+.appBuyitemwrapper {
+  margin: 0 !important;
+}
+
+.appBuyitemwrapper h3 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  color: #033C93;
+  border-bottom: 1px solid #D6DEE3;
+  text-align: center;
+  padding: 25px 24px;
+}
+
+
+.appBuyitemwrapper h4 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.05em;
+  color: #2F2E2E;
+  text-align: right;
+  border-bottom: 1px solid #D6DEE3;
+  padding: 25px 24px;
+  line-height: 19px;
+}
+
+
+.appBuyitemwrapper > div > div {
+  padding: 35px 0;
+}
+
+.appItemname {
+  float: left;
+  width: 60%;
+  padding: 0 0 0 22px;
+}
+
+.appItemname label {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #76787A;
+}
+
+.appItemname p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  color: #2F2E2E;
+}
+
+.appBuyitemwrapper img {
+  max-width: 27%;
+  float: left;
+}
+
+.appItemblockfield {
+  display: inline-block;
+}
+
+.appCheckoutdetails span {
+  display: inline-block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  color: #2F2E2E;
+}
+
+.appCheckoutdetails > div > div {
+  padding: 0;
+}
+
+.appCheckoutdetails label {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #76787A;
+}
+
+.appOrdersummary {
+  background: rgba(224, 237, 246, 0.4);
+  border-radius: 3px;
+  padding:0px 0 50px 0;
+}
+
+.appOrdersummary b {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 29px;
+  letter-spacing: 0.05em;
+  color: #2F2E2E;
+  width: 100%;
+  display: inline-block;
+  text-align: right;
+}
+
+.appOrdersummary label {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  width: 100%;
+  display: inline-block;
+  color: #76787A;
+  text-align: right;
+}
+
+.appOrdersummary > div {
+  padding: 30px !important;
+}
+
+
+.appOrdersummary .appProceedpay {
+  background: #0261F0;
+  border-radius: 3px;
+  padding: 10px 20px;
+  float: right;
+}
+
+.appCheckoutdetails .appCheckoutrow{
+  margin: 0;
+}
+
+
+@media screen and (max-width: 767px) {
+  .appBuyitemwrapper h4 {
+    padding: 15px;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+  }
+
+  .appOrdersummary > div {
+    padding: 10px !important;
+    float: left;
+    width: 50%;
+    text-align: left;
+  }
+
+  .appOrdersummary b {
+    text-align: left;
+  }
+
+  .appOrdersummary label {
+    text-align: left;
+  }
+
+  .appOrdersummary .appProceedpay {
+    float: none;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .appItemname {
+    width: 73%;
+  }
+
+  .appCheckoutdetails {
+    padding: 20px 0;
+  }
+}

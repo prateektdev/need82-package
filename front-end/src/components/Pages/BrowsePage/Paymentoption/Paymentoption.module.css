@@ -1,0 +1,65 @@
+.appPaymentoption {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+.appPaymentoption > div {
+  max-width: 536px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+
+}
+
+
+.appPaymentoption > div > div {
+  padding: 25px 0;
+}
+
+.appPaymentoption h3 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #033C93;
+  text-align: center;
+}
+
+
+.appPaymentoption p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #707070;
+  text-align: center;
+}
+
+
+.appimagefield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appimagefield a {
+  background: rgba(224, 237, 246, 0.4);
+  float: left;
+  width: 116px;
+  height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.apppaymentsection {
+  margin: 37px 0 0;
+}
+
+@media screen and (max-width: 767px) {
+  .appPaymentoption > div > div {
+    border-top: 9.68px #6AA1F2 solid;
+    border-radius: 3px 3px 0px 0px;
+
+  }
+}

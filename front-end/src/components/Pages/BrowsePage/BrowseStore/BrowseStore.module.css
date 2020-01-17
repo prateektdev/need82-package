@@ -1,0 +1,293 @@
+
+.appBrowsstore > div {
+  border-radius: 6px;
+  border: 0;
+  display: inline-block;
+  width: 100%;
+  padding: 28px 75px;
+}
+
+
+.appBrowsstore > div > span {
+  float: left;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 39px;
+  letter-spacing: 0.02em;
+  color: #2D2D2D;
+}
+
+
+.appBrowsstore > div .appViewstore {
+  float: right;
+  border: 2px solid #0261F0;
+  background: #fff;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #0261F0;
+  padding: 11px 15px;
+}
+
+
+.appStorefield button {
+  border: 2px solid #0261f0;
+  border-radius: 3px;
+  color: #0261f0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  padding: 8px 17px;
+  color: #0261F0;
+
+}
+
+.appStorefield button:hover {
+  background: #0261f0;
+}
+
+.appCollapsefield {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .appThumbnail {
+    padding: 0 !important;
+  }
+
+
+  .appEmptyStorescontent button {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .appEmptyStorescontent p {
+    padding: 20px;
+  }
+
+
+  .storeListViewHighlight .appMediafigure {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .appMediabody h5 {
+    padding: 15px;
+  }
+
+  .appMediabody h6 {
+    font-size: 16px;
+  }
+
+  .appMediaimg {
+    padding: 0 !important;
+  }
+
+  .appViewprofile {
+    padding: 30px 0 !important;
+  }
+
+  .appProfilemedia .appBadgesfield {
+    padding: 0;
+  }
+
+  .appProfilemedia {
+    max-width: 100% !important;
+  }
+
+  .appProfilemedia h5 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .appViewprofile .appProfilemedia p {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: #707070;
+  }
+
+  .appProfilemedia .appBadgesfield p {
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  .appOwnerfield {
+    font-size: 14px;
+  }
+
+  .appStorefield {
+    font-size: 14px;
+  }
+
+  .appStorefield b {
+    font-size: 14px;
+  }
+
+  .appItemdescription span {
+    font-size: 14px;
+  }
+
+
+  .appBrowsstore > div {
+    padding: 30px 0;
+  }
+
+  .appViewstore {
+    display: none !important;
+  }
+
+  .appCollapsefield span {
+    float: right;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.02em;
+    color: #0261F0;
+  }
+
+  .appCollapsefield span:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #0261F0;
+    border-radius: 2px;
+    float: left;
+    margin-right: 5px;
+  }
+
+  .appCollapsefield .appFilterblock  {
+    display: block !important;
+  }
+
+  .appCollapsefield > div > div {
+    display: inline-block;
+    width: 100%;
+
+  }
+
+  .appCollapsefield {
+    display: block;
+  }
+}
+
+.appEmptyshoppingcart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 80px 0;
+}
+
+.appViewprofile {
+  padding: 30px 0px;
+  display: inline-block;
+  width: 100%;
+}
+
+.appOwnerfield {
+  float: left;
+  line-height: 28px;
+}
+
+.appOwnerfield span {
+  color: #707070;
+}
+
+.appBadgesfield {
+  float: left;
+  padding-left: 20px;
+}
+
+.appBadgesfield img {
+  float: left;
+}
+
+.appBadgesfield p {
+  float: left;
+  line-height: 32px;
+  padding-left: 7px;
+  margin-bottom: 0;
+}
+
+.appProfilemedia {
+  max-width: 75%;
+  padding: 10px 0;
+}
+
+
+.appMediaimg img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.appItemdescription span {
+  color: #707070;
+}
+
+.appItemdescription > p {
+  height: 50px;
+  overflow: hidden;
+}
+
+.appStorefield {
+  display: inline-block;
+  width: 100%;
+}
+
+.appStorefield span {
+  color: #707070;
+  padding-right: 10px;
+}
+
+.appStorefield b {
+  padding-left: 10px;
+}
+
+.appStorefield h6 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.02em;
+  color: #2d2d2d;
+  padding-top: 7px;
+}
+
+.appMediasection {
+  margin-bottom: 30px;
+}
+.appMediasection:hover{
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .appViewprofile {
+    padding: 15px;
+  }
+
+  .appBadgesfield {
+    padding-left: 0;
+  }
+}
+
+
+.appProfilemedia .appprodetails {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #707070;
+}
+
+
+@media screen and (min-width: 1025px) and (max-width: 1500px) {
+  .appProfilemedia {
+    max-width: 100% !important;
+
+  }
+}

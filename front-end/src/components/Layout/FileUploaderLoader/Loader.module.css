@@ -1,0 +1,13 @@
+
+.appLoader {
+  /* background: rgba(0, 0, 0, 0.5); */
+  /* width: 50%;
+  height: 50%; */
+  /* position: relative; */
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

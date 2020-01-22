@@ -10,6 +10,7 @@ import com.need82.packag.model.PackageDetails;
 import com.need82.packag.model.PackageModel;
 import com.need82.packag.repository.PackageDetailsRepository;
 import com.need82.packag.repository.PackageRepository;
+import com.need82.packag.repository.UserRepository;
 import com.need82.packag.service.PackageService;
 import com.need82.packag.utils.BaseResponse;
 
@@ -19,6 +20,9 @@ public class PackageServiceImpl implements PackageService {
 	@Autowired
 	public PackageRepository packageRepo;
 
+	@Autowired
+	public UserRepository userRepository;
+	
 	@Autowired
 	public PackageDetailsRepository packageDetailsRepo;
 
@@ -35,6 +39,7 @@ public class PackageServiceImpl implements PackageService {
 					return new BaseResponse(true, "Updated", Arrays.asList(packageResponse));
 				}
 			}
+			packageObject.setCreatedBy(userRepository.findById(packageObject.getCreatedBy().getId()).get());
 			PackageModel packageResponse = packageRepo.save(packageObject);
 			return new BaseResponse(true, "Saved", Arrays.asList(packageResponse));
 

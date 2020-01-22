@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.need82.packag.model.PackageDetails;
 
 /**
- * Created by prateek trivedi.
+ * Created by cisrivedi.
  */
 
 @Repository

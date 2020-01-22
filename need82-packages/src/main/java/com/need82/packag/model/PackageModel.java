@@ -9,10 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -20,7 +23,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 @Entity
 @Table(name = "package")
 public class PackageModel {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -39,6 +42,10 @@ public class PackageModel {
 
 	@Column
 	private String imageUrl;
+
+	@ManyToOne(cascade=CascadeType.ALL)
+	@NotNull
+	private User createdBy;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<PackageDetails> details;
@@ -109,11 +116,19 @@ public class PackageModel {
 		this.details = details;
 	}
 
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
 	@Override
 	public String toString() {
-		return "Package [id=" + id + ", tourName=" + tourName + ", noOfDays=" + noOfDays + ", noOfNights=" + noOfNights
-				+ ", price=" + price + ", imageUrl=" + imageUrl + ", details=" + details + ", createdAt=" + createdAt
-				+ ", updatedAt=" + updatedAt + "]";
+		return "PackageModel [id=" + id + ", tourName=" + tourName + ", noOfDays=" + noOfDays + ", noOfNights="
+				+ noOfNights + ", price=" + price + ", imageUrl=" + imageUrl + ", createdBy=" + createdBy + ", details="
+				+ details + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
 
 }

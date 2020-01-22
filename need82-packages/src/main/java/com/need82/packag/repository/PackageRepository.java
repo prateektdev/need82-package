@@ -7,9 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.need82.packag.model.PackageModel;
+import com.need82.packag.model.User;
 
 /**
- * Created by prateek trivedi.
+ * Created by cisrivedi.
  */
 
 @Repository
@@ -23,6 +24,6 @@ public interface PackageRepository extends JpaRepository<PackageModel, Long> {
 	
 	public List<PackageModel> findByPrice(Double price);
 	
-	
+	public List<PackageModel> findByCreatedBy(User user);	
 
 }

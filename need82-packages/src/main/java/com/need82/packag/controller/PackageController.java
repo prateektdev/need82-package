@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,12 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.need82.packag.exception.ResourceNotFoundException;
 import com.need82.packag.model.PackageModel;
+import com.need82.packag.model.User;
 import com.need82.packag.repository.PackageRepository;
+import com.need82.packag.repository.UserRepository;
 import com.need82.packag.serviceImpl.PackageServiceImpl;
 import com.need82.packag.utils.BaseResponse;
 
 /**
- * Created by prateek trivedi.
+ * Created by cisrivedi.
  */
 @RestController
 @RequestMapping("/api")
@@ -32,19 +36,33 @@ public class PackageController {
 	PackageRepository packageRepository;
 
 	@Autowired
+	UserRepository userRepository;
+		
+	@Autowired
 	PackageServiceImpl packageService;
 
 	@GetMapping("/packages")
+	@PreAuthorize("hasRole('ADMIN') OR hasRole('AGENT')")
 	public List<PackageModel> getAllPackages() {
 		return packageRepository.findAll();
 	}
 
+	@GetMapping("/my-packages")
+	@PreAuthorize("hasRole('AGENT')")
+	public List<PackageModel> getMyPackages(Authentication authentication) {
+		System.out.println(authentication.getName());
+		User user=  userRepository.findByUsername(authentication.getName());
+		return packageRepository.findByCreatedBy(user);
+	}
+	
 	@PostMapping("/packages")
+	@PreAuthorize("hasRole('AGENT')")
 	public BaseResponse createPackage(@RequestBody PackageModel packageModel) {
 		System.out.println(packageModel.toString());
 		BaseResponse response = packageService.savePackage(packageModel);
 		System.out.println("package : " + packageModel.toString());
 		return response;
+		
 	}
 
 	@GetMapping("/packages/{id}")

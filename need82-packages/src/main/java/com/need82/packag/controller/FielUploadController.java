@@ -1,7 +1,9 @@
 package com.need82.packag.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,12 +13,13 @@ import com.need82.packag.utils.BaseResponse;
 import com.need82.packag.utils.FileUpload;
 
 @RestController
+@RequestMapping("/api")
 public class FielUploadController {
 
 	// Save the uploaded file to this folder
 	private static String UPLOADED_FOLDER = "uploads/";
 
-	@PostMapping("/upload") // //new annotation since 4.3
+	@PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE) // //new annotation since 4.3
 	public BaseResponse singleFileUpload(@RequestParam("file") MultipartFile file,
 			RedirectAttributes redirectAttributes) {
 		if (file.isEmpty()) {

@@ -25,16 +25,17 @@ import com.need82.packag.security.JwtAuthenticationTokenFilter;
 import com.need82.packag.security.JwtSuccessHandler;
 
 /**
-
-* The class is used to configure the authorized access along different routes in the application
-
-* It is the configuration bean of spring
-
-* @version 1.0
-
-* @author prateek
-
-*/
+ * 
+ * The class is used to configure the authorized access along different routes
+ * in the application
+ * 
+ * It is the configuration bean of spring
+ * 
+ * @version 1.0
+ * 
+ * @author prateek
+ * 
+ */
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
 @Configuration
@@ -50,13 +51,14 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new ProviderManager(Collections.singletonList(authenticationProvider));
 	}
 
-	/** 
-	* The method is used for providing the custom JWT Authentication Filter 
-	* Which We are using for the JWT token authorization
-	* Output custom JWTAuthenticationFilter
-	* @version 1.0
-	* @author prateek
-	*/
+	/**
+	 * The method is used for providing the custom JWT Authentication Filter Which
+	 * We are using for the JWT token authorization Output custom
+	 * JWTAuthenticationFilter
+	 * 
+	 * @version 1.0
+	 * @author prateek
+	 */
 	@Bean
 	public JwtAuthenticationTokenFilter authenticationTokenFilter() {
 		JwtAuthenticationTokenFilter filter = new JwtAuthenticationTokenFilter();
@@ -65,12 +67,13 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 		return filter;
 	}
 
-	/** 
-	* The method is used for enabling firewall for CORS request
-	* from spring security
-	* @version 1.0
-	* @author prateek
-	*/
+	/**
+	 * The method is used for enabling firewall for CORS request from spring
+	 * security
+	 * 
+	 * @version 1.0
+	 * @author prateek
+	 */
 	@Bean
 	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
 		StrictHttpFirewall fireWall = new StrictHttpFirewall();
@@ -78,12 +81,12 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 		return fireWall;
 	}
 
-	/** 
-	* The method is used for allowing CORS request
-	* 
-	* @version 1.0
-	* @author prateek
-	*/
+	/**
+	 * The method is used for allowing CORS request
+	 * 
+	 * @version 1.0
+	 * @author prateek
+	 */
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		// String link = String.format("%s://%s:%s", this.frontEndScheme,
@@ -96,21 +99,23 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 			}
 		};
 	}
-	
-	/** 
-	* The method is used for configuring authorization at different routes
-	* Output nothing ,just configuration
-	* @version 1.0
-	* @author prateek
-	*/
+
+	/**
+	 * The method is used for configuring authorization at different routes Output
+	 * nothing ,just configuration
+	 * 
+	 * @version 1.0
+	 * @author prateek
+	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.cors().and().csrf().disable().authorizeRequests().antMatchers(HttpMethod.OPTIONS,"**/api/**").permitAll().antMatchers(HttpMethod.GET,"**/rest/**").authenticated()
-		.antMatchers(HttpMethod.POST,"**/api/**").authenticated().antMatchers(HttpMethod.PUT,"**/api/**").authenticated()
-		.antMatchers(HttpMethod.DELETE,"**/api/**").authenticated().and().exceptionHandling()
-				.authenticationEntryPoint(entryPoint).and().sessionManagement()
-				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.cors().and().csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "**/user/**").permitAll()
+				.antMatchers(HttpMethod.OPTIONS, "**/api/**").permitAll().antMatchers(HttpMethod.GET, "**/api/**")
+				.authenticated().antMatchers(HttpMethod.POST, "**/api/**").authenticated()
+				.antMatchers(HttpMethod.PUT, "**/api/**").authenticated().antMatchers(HttpMethod.DELETE, "**/api/**")
+				.authenticated().and().exceptionHandling().authenticationEntryPoint(entryPoint).and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 		http.addFilterBefore(authenticationTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 		http.headers().cacheControl();

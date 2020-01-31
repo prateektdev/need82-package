@@ -6,36 +6,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
-
-* The is model class for the User entity in the application.
-* It contain fields like firstname ,lastname ,username ,password ,role
-
-* @version 1.0
-
-* @author prateek
-
-*/
-@Entity 
+ * 
+ * The is model class for the User entity in the application. It contain fields
+ * like firstname ,lastname ,username ,password ,role
+ * 
+ * @version 1.0
+ * 
+ * @author prateek
+ * 
+ */
+@Entity
 public class User {
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@Column
-	private String firstname ;
-	
-	@Column
-	private String lastname ;
-	
-	@Column
-	private String username ;
-	
-	@Column
-	private String password ;
 
 	@Column
-	private Role role ;
+	private String firstname;
+
+	@Column
+	private String lastname;
+
+	@Column(unique = true, nullable = false)
+	private String username;
+
+	@Column
+	private String password;
+
+	@Column
+	private Role role;
 
 	public Long getId() {
 		return id;
@@ -60,7 +60,7 @@ public class User {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
- 
+
 	public String getUsername() {
 		return username;
 	}
@@ -84,14 +84,11 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
- 
 
 	@Override
 	public String toString() {
 		return "ApplicationUser [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
 				+ username + ", password=" + password + ", role=" + role + "]";
 	}
-	
-	
-	
+
 }

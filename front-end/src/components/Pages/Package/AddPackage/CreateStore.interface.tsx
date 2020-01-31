@@ -4,11 +4,7 @@ import {
 
 } from '../../../../actions/store.actions';
 import {
-  uploadFileInitiate as uploadFileInitiateAction,
-  uploadFile as uploadFileAction,
-  verifyFileUpload as verifyFileUploadAction,
-  verifyFileUploadSuccess as verifyFileUploadSuccessAction,
-
+  uploadFile as uploadFileAction
 } from '../../../../actions/fileUpload.actions';
 
 export interface CreateStoredataState {
@@ -32,7 +28,7 @@ export interface CreateStoredataState {
   isFileUploadSuccess: boolean,
   isFileUploadVerifyMessage: string
   isFileUploadVerifiedSuccess: boolean,
-  showMintOptions:boolean,
+  showMintOptions: boolean,
 }
 
 export interface CreateStoreState {
@@ -52,35 +48,18 @@ export interface stateProps {
     isLoading: boolean;
     isAddStoreSuccess: boolean;
   },
-  uploadFileInitiate: {
-    isInitiating: boolean;
-    isUpLoading: boolean;
-    isVerifying: boolean;
-    isFileUploadInitiateSuccess: boolean;
+  uploadFile: {
+    isUpLoaded: boolean;
     isFileUploadSuccess: boolean;
-    isFileUploadVerifiedSuccess: boolean,
-    errorInitiating: string;
     errorUploading: string;
-    errorVerifying: string;
-    messageInitiating: any;
     messageUploading: any;
-    messageVerifying: any;
-  },
-  fetchStoreCategories: {
-    message: any;
-    error: string;
-    isLoading: boolean;
-    isFetchStoreCategories: boolean;
   }
 }
 
 
 export interface PropsFromDispatch {
   addStore: typeof addStoreAction
-  uploadFileInitiate: typeof uploadFileInitiateAction,
   uploadFile: typeof uploadFileAction,
-  verifyFileUpload: typeof verifyFileUploadAction,
-  verifyFileUploadSuccess :typeof verifyFileUploadSuccessAction,
   handleImageChange: Function,
   handleEditorStateChange: Function,
   onSubmit: Function

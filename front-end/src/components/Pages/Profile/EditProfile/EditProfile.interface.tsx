@@ -4,11 +4,7 @@ import {
 }
   from '../../../../actions/profile.actions';
 import {
-  uploadFileInitiate as uploadFileInitiateAction,
-  uploadFile as uploadFileAction,
-  verifyFileUpload as verifyFileUploadAction,
-  verifyFileUploadSuccess as verifyFileUploadSuccessAction,
-
+  uploadFile as uploadFileAction
 } from '../../../../actions/fileUpload.actions';
 
 export interface EditProfileState {
@@ -61,10 +57,7 @@ export interface stateProps {
 export interface PropsFromDispatch {
   fetchUserProfile: typeof fetchUserProfileAction,
   editUserProfile: typeof editUserProfileAction,
-  uploadFileInitiate: typeof uploadFileInitiateAction,
   uploadFile: typeof uploadFileAction,
-  verifyFileUpload: typeof verifyFileUploadAction,
-  verifyFileUploadSuccess: typeof verifyFileUploadSuccessAction,
   handleImageChange: Function,
   onSubmit: any
 }

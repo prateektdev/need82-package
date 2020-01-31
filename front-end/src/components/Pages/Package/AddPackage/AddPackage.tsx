@@ -8,15 +8,9 @@ import { Container, Breadcrumb } from 'react-bootstrap';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {
   addStore as addStoreAction,
-  fetchStoreCategories as fetchStoreCategoriesAction,
-
 } from '../../../../actions/store.actions';
 import {
-  uploadFileInitiate as uploadFileInitiateAction,
   uploadFile as uploadFileAction,
-  verifyFileUpload as verifyFileUploadAction,
-  verifyFileUploadSuccess as verifyFileUploadSuccessAction,
-
 } from '../../../../actions/fileUpload.actions';
 import Step1 from './Step1';
 import Step2 from './Step2';
@@ -25,8 +19,6 @@ import { change, reduxForm } from 'redux-form';
 import { PropsFromDispatch, CreateStoredataState, stateProps } from './CreateStore.interface';
 import { EditorState } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import StoreCreationModal from './component/StoreCreationModal';
-import StoreCreatedModal from './component/StoreCreatedModal';
 import { INVALID_IMAGE, INVALID_CATEGORY, INVALID_STORE_DESCRIPTION, NAVIGATION_TIMEOUT } from '../../../../constants/constants';
 
 
@@ -95,9 +87,7 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
       selectedFile: event.target.files[0]
     });
     this.props.handleImageChange(event.target.files[0]);
-    const fileParts = event.target.files[0].name.split('.');
     const fileType = event.target.files[0].type;
-    const filExtension = fileParts[1];
     let reader = new FileReader();
     reader.onloadend = () => {
       this.setState({
@@ -105,25 +95,17 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
       } as CreateStoredataState, () => { this.handleValidation() });
     };
     reader.readAsDataURL(event.target.files[0]);
-    const body = new Blob([event.target.files[0]], { type: fileType });
-    const formData = {
-      type: 'STORE_IMAGE',
-      file: {
-        extension: filExtension,
-        type: fileType
-      },
-      fileData: body,
-      fileType: fileType
-    }
-    this.props.uploadFileInitiate(formData);
-    this.setState({ filetype: formData.file });
+    const formData = new FormData();
+    formData.append('file',event.target.files[0])
+    // const formData = {
+    //   file: form,
+    //   fileType: fileType
+    // }
+    this.props.uploadFile(formData);
   }
 
   handleSubmit = (): void => {
-    if (this.handleValidation()) {
-      this.setState({ showMintOptions: true })
       this.props.handleSubmit();
-    }
   }
 
   handleAddRow = () => {
@@ -226,20 +208,10 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
             <Step1
               errors={errors}
               categories={categories}
-              isInitiating={isInitiating}
               isUpLoading={isUpLoading}
-              isVerifying={isVerifying}
-              isFileUploadInitiateSuccess={isFileUploadInitiateSuccess}
               isFileUploadSuccess={isFileUploadSuccess}
-              isFileUploadVerifiedSuccess={isFileUploadVerifiedSuccess}
-              messageInitiating={messageInitiating}
               messageUploading={messageUploading}
-              messageVerifying={messageVerifying}
-              errorInitiating={errorInitiating}
               errorUploading={errorUploading}
-              errorVerifying={errorVerifying}
-              category={category}
-              tags={tags}
               storeDescription={storeDescription}
               handleEditorStateChange={this.handleEditorStateChange}
               selectedFile={selectedFile}
@@ -248,12 +220,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
               rows={rows}
               handleAddRow={this.handleAddRow}
               handleRemoveRow={this.handleRemoveRow}
-              handleMetadataChange={this.handleMetadataChange}
-              mintSize={mintSize}
-              mintOptions={mintOptions}
-              enableBatchMinting={enableBatchMinting}
-              handleCheckClick={this.handleCheckClick}
-              handleMintSize={this.handleMintSize}
               onSubmit={this.nextPage}
             />
           }
@@ -277,7 +243,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
               mintSize={mintSize}
               mintOptions={mintOptions}
               enableBatchMinting={enableBatchMinting}
-              handleMintSize={this.handleMintSize}
               onSubmit={this.handleSubmit}
             />
           }
@@ -292,29 +257,17 @@ const mapStateToProps = (state: stateProps) => ({
   error: state.addStore.error,
   message: state.addStore.message,
   isAddStoreSuccess: state.addStore.isAddStoreSuccess,
-  categories: state.fetchStoreCategories.message,
   isLoading: state.addStore.isLoading,
-  isInitiating: state.uploadFileInitiate.isInitiating,
-  isUpLoading: state.uploadFileInitiate.isUpLoading,
-  isVerifying: state.uploadFileInitiate.isVerifying,
-  isFileUploadInitiateSuccess: state.uploadFileInitiate.isFileUploadInitiateSuccess,
-  isFileUploadSuccess: state.uploadFileInitiate.isFileUploadSuccess,
-  isFileUploadVerifiedSuccess: state.uploadFileInitiate.isFileUploadVerifiedSuccess,
-  errorInitiating: state.uploadFileInitiate.errorInitiating,
-  errorUploading: state.uploadFileInitiate.errorUploading,
-  errorVerifying: state.uploadFileInitiate.errorVerifying,
-  messageInitiating: state.uploadFileInitiate.messageInitiating,
-  messageUploading: state.uploadFileInitiate.messageUploading,
-  messageVerifying: state.uploadFileInitiate.messageVerifying
+  isUpLoaded: state.uploadFile.isUpLoaded,
+  isFileUploadSuccess: state.uploadFile.isFileUploadSuccess,
+  errorUploading: state.uploadFile.errorUploading,
+  messageUploading: state.uploadFile.messageUploading,
 });
 
 const mapDispatchToProps: PropsFromDispatch = {
   addStore: addStoreAction,
   onSubmit: addStoreAction,
-  uploadFileInitiate: uploadFileInitiateAction,
-  uploadFile: uploadFileAction,
-  verifyFileUpload: verifyFileUploadAction,
-  verifyFileUploadSuccess: verifyFileUploadSuccessAction,
+  uploadFile : uploadFileAction,
   handleImageChange: selectedKey => change('CreatePackageForm', 'image_url', selectedKey),
   handleEditorStateChange: data => change('CreatePackageForm', 'description', data)
 }

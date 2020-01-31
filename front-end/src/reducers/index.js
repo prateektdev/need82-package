@@ -21,7 +21,7 @@ import {
     fetchUserStore
 } from './store/store.reducer';
 import { fetchStoreCategories } from './store/storeCategories.reducer';
-import { uploadFileInitiate } from './fileUpload/initiateUpload.reducer';
+import { uploadFile } from './fileUpload/uploadFile.reducer';
 import { reducer as formReducer } from 'redux-form';
 export default combineReducers({
 
@@ -40,7 +40,7 @@ export default combineReducers({
     fetchStore,
     fetchAllStore,
     addStore,
-    uploadFileInitiate,
+    uploadFile,
     fetchCurrentStore,
     fetchStoreCategories,
     fetchUserStore,

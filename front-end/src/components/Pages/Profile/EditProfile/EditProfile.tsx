@@ -11,10 +11,7 @@ import {
 }
   from '../../../../actions/profile.actions';
 import {
-  uploadFileInitiate as uploadFileInitiateAction,
-  uploadFile as uploadFileAction,
-  verifyFileUpload as verifyFileUploadAction,
-  verifyFileUploadSuccess as verifyFileUploadSuccessAction,
+  uploadFile as uploadFileAction
 } from '../../../../actions/fileUpload.actions';
 import Loader from "../../../Layout/Loader";
 import { reduxForm, change } from 'redux-form';
@@ -211,17 +208,14 @@ const mapStateToProps = (state: stateProps) => {
     messageInitiating: state.uploadFileInitiate.messageInitiating,
     messageUploading: state.uploadFileInitiate.messageUploading,
     messageVerifying: state.uploadFileInitiate.messageVerifying
-  }
+  } 
 };
 
 const mapDispatchToProps: PropsFromDispatch = {
   fetchUserProfile: fetchUserProfileAction,
   editUserProfile: editUserProfileAction,
   onSubmit: editUserProfileAction,
-  uploadFileInitiate: uploadFileInitiateAction,
   uploadFile: uploadFileAction,
-  verifyFileUpload: verifyFileUploadAction,
-  verifyFileUploadSuccess: verifyFileUploadSuccessAction,
   handleImageChange: selectedKey => change('EditProfileForm', 'image_key', selectedKey),
 }
 

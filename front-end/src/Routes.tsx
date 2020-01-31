@@ -5,10 +5,8 @@ import HomePage from './components/Pages/HomePage';
 import BrowsePage from './components/Pages/BrowsePage';
 import Profile from './components/Pages/Profile';
 import ForgotPassword from './components/Authentication/ForgotPassword';
-import ConfimForgotPassword from './components/Authentication/ConfimForgotPassword';
 import AddPackage from './components/Pages/Package/AddPackage';
-import { PrivateRoute } from './components/PrivateComponents/PrivateRoute';
-import { PrivateRouteForgotPassword } from './components/PrivateComponents/PrivateRouteForgotPassword';
+import { PrivateRoute } from './components/PrivateComponents/PrivateRoute'; 
 import ViewStore from './components/Pages/Package/ViewStore';
 
 
@@ -24,7 +22,6 @@ const createRoutes = () => (
       <Route path="/browse" exact component={BrowsePage} />
       <Route path="/view-package" exact component={ViewStore}/>
       <Route path="/forgot-password" exact component={ForgotPassword} />
-      <PrivateRouteForgotPassword path="/confirm-forgot-password" exact component={ConfimForgotPassword} />
       <Route path="/item" exact component={HomePage} />
       <Route path="/profile" component={Profile} />
       <Route path="/add-package" exact component={AddPackage} />

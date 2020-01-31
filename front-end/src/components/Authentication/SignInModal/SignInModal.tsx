@@ -19,6 +19,7 @@ import passwordMask from '../../../assets/images/passwordMask.svg';
 import closedEye from '../../../assets/images/closedEye.svg';
 import { SignInState, stateProps, PropsFromDispatch } from './SignIn.interface';
 import { history } from '../../../utils/history';
+import { setTOLocalStorage } from '../../../utils/localStorage';
 
 
 class SignInModal extends React.Component<any, SignInState> {
@@ -39,14 +40,13 @@ class SignInModal extends React.Component<any, SignInState> {
     console.log(this.props);
     if (this.props.isLoading != prevProps.isLoading) {
       if (this.props.isSignInSuccess) {
+        setTOLocalStorage('ROLE',this.props.message.role);
+        setTOLocalStorage('TOKEN',this.props.message.token);
         this.props.handleActionResponse('isLoggedIn', true);
         this.props.handleCloseModal('signInModal');
       } else {
         this.props.handleActionResponse('isLoggedIn', false);
-        if (this.props.signInError === 'User is not confirmed.') {
           this.props.handleCloseModal('signInModal');
-          this.props.handleShowModal('confirmSignUpModal');
-        }
       }
     }
   }

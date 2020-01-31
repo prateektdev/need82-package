@@ -112,7 +112,7 @@ class Step1 extends React.Component<any, any> {
 }
 
 export default reduxForm<any, any>({
-  form: 'CreateStoreForm',
+  form: 'CreatePackageForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
   validate,

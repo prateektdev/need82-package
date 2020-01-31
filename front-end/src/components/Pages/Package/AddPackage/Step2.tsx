@@ -44,70 +44,39 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
           </div>
         );
     }
+    console.log(this.props)
     return (
       <div>
         <div className={styles.appSmartcontract}>
           <Container className={styles.appSmartcontainer}>
             <div className={styles.appCustomcontainer}>
-              <h3>Information Preview</h3>
-              <h5>Store Category</h5>
+              <h3>Add Details to Package</h3>
+              <h5>{this.props.initialValues}</h5>
               <div className={styles.appContarctform}>
                 <Form onSubmit={(formData) => this.handleSubmit(formData)}>
-                  <Category category={category} categories={categories} handleCategoryChange={(selectedKey) => handleCategoryChange(selectedKey)} />
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label className={styles.appFormlabel}
-                    >
-                      Store title <img src={info} className="img-fluid" />
-                    </Form.Label>
-                    <TextField type="text" name="title" disabled
-                      placeholder="Enter a title for your store" />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label className={styles.appFormlabel}
-                    >
-                      Store sub-title <img src={info} className="img-fluid" />
-                    </Form.Label>
-                    <TextField type="text" name="sub_title" disabled
-                      placeholder="Enter a subtitle for your store" />
-                  </Form.Group>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label className={styles.appFormlabel}>
-                      Upload cover photo for store <img src={info} className="img-fluid" />
-                    </Form.Label>
-                    <Form.Text className="text-muted">
-                      <img src={info} className="img-fluid" />
-                      Upload preview image for your store
-                    </Form.Text>
-                  </Form.Group>
-                  <div>
-                    <Row>
-                      <Col className={styles.appChoosephotoblock}>
-                        <div className={styles.appImageuploader}>
-                          <Button>Choose PHOTO</Button>
-                          <span>No photo chosen</span>
-                          <input type="file" disabled accept="image/*,video/*,.pdf," name="avatar"
-                            onChange={fileChangedHandler} />
-                        </div>
-                      </Col>
-                      <Col className={styles.appImagepreview}>
-                        {imagePreview}
-                      </Col>
-                    </Row>
-                  </div>
+                  <TextField type="text" name="tourName" label="Package Name"
+                    placeholder="Enter a title for your store" />
+                  <TextField type="number" name="noOfDays" label="Number of days"
+                    placeholder="Enter number of days in the package" />
+                  <TextField type="number" name="noOfNights" label="Number of nights"
+                    placeholder="Enter number of nights in the package" />
+                  <TextField type="text" name="price" label="Price"
+                    placeholder="Enter price of the package" />
                   <Form.Group controlId="formBasicEmail">
                     <div className={styles.appMetadata}>
                       <h2>Other Metadata</h2>
                       <span>Add extra data on your token (maximun of 3 data allowed)</span>
-                      <MetaDataComponent rows={rows} disabled={true} handleAddRow={handleAddRow} handleMetadataChange={handleMetadataChange} handleRemoveRow={handleRemoveRow} />
+                      <MetaDataComponent
+                        rows={rows}
+                        disabled={false}
+                        handleAddRow={handleAddRow}
+                        handleMetadataChange={handleMetadataChange}
+                        handleRemoveRow={handleRemoveRow}
+                      />
 
-                      <BatchMintComponent data={mintOptions}
-                        mintSize={mintSize}
-                        enableBatchMinting={enableBatchMinting}
-                        handleCheckClick={handleCheckClick}
-                        handleMintSize={handleMintSize} />
                     </div>
                   </Form.Group>
-                  <p>Store description</p>
+                  <p>Package description</p>
                   <CKEditor
                     editor={ClassicEditor}
                     disabled={true}
@@ -141,7 +110,7 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
 
 
 export default reduxForm<any, any>({
-  form: 'CreateStoreForm',
+  form: 'CreatePackageForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
 })(Step2);

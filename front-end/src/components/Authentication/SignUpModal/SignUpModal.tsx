@@ -63,11 +63,8 @@ class SignUpModal extends React.Component<any, SignUpState> {
     if(this.props.isSignupSuccess!=prevProps.isSignupSuccess){
       if(this.props.isSignupSuccess){
         this.props.handleCloseModal('signUpModal');
+        this.props.handleCloseModal('signInModal');
         this.props.handleActionResponse('isSignUp',true);
-        if(!this.props.message.userConfirmed){
-          this.props.handleActionResponse('isConfirmSignUp',false);
-          this.props.handleShowModal('confirmSignUpModal');
-        }
       }else{
         this.props.signUpStatus(false);
       }
@@ -95,8 +92,13 @@ class SignUpModal extends React.Component<any, SignUpState> {
             <Container className={styles.appMiddlesection}>
               <h2>Create an account</h2>
               <Form onSubmit={this.props.handleSubmit}>
-                <TextField type="email" label="Email" name="email" />
                 <TextField type="text" classes={styles.appUsernameInput}
+                  label="First Name" name="firstname"
+                />
+                 <TextField type="text" classes={styles.appUsernameInput}
+                  label="Last Name" name="lastname"
+                />
+                 <TextField type="text" classes={styles.appUsernameInput}
                   label="Username" name="username"
                 />
                 <div className={styles.appShowfield}>

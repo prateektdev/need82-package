@@ -19,7 +19,6 @@ import { history } from '../../../utils/history';
 import { getTokenFromLocalStorage } from '../../../utils/localStorage';
 import SignInModal from '../../Authentication/SignInModal';
 import SignUpModal from '../../Authentication/SignUpModal';
-import ConfirmSignUpModal from '../../Authentication/ConfirmSignUpModal';
 
 interface stateProps {
   signIn: {
@@ -122,9 +121,6 @@ class Header extends React.Component<any, any> {
 
           <SignInModal showModal={signInModal} handleShowModal={this.showModal} handleCloseModal={this.handleCloseModal} handleActionResponse={this.handleActionResponse} />
           <SignUpModal showModal={signUpModal} handleShowModal={this.showModal} handleCloseModal={this.handleCloseModal} handleActionResponse={this.handleActionResponse} />
-          <ConfirmSignUpModal showModal={confirmSignUpModal} handleShowModal={this.showModal} handleCloseModal={this.handleCloseModal} handleActionResponse={this.handleActionResponse} />
-
-
           <Navbar expand="lg">
             <Navbar.Brand href="#home">
               <img src={logo} className="img-fluid" alt="logo"
@@ -147,10 +143,10 @@ class Header extends React.Component<any, any> {
             <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.apphamburgericon} />
             <Navbar.Collapse id="basic-navbar-nav" className={styles.appmenufield}>
               <Nav className="ml-auto">
-                <Nav.Link onClick={() => this.handleRoute('add-package')}>Create a Store</Nav.Link>
+                <Nav.Link onClick={() => this.handleRoute('add-package')}>Create a Package</Nav.Link>
                
                 {!this.state.isLoggedIn && <Nav.Link onClick={() => this.showModal('signInModal')} className={styles.appLogin}>Login</Nav.Link>}              </Nav>
-              {!this.state.isLoggedIn && <Button variant="primary" onClick={() => this.showModal('signUpModal')}>Create Account</Button>}
+              {!this.state.isLoggedIn && <Nav.Link onClick={() => this.showModal('signUpModal')} className={styles.appLogin}>Create Account</Nav.Link>}
               {this.state.isLoggedIn &&
                 <div className={styles.appMyaccount}>
                   <InputGroup className={styles.appselectfield}>

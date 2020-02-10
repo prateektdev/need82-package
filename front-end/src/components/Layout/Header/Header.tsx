@@ -81,24 +81,24 @@ class Header extends React.Component<any, any> {
     // if (this.props.showLoginModal) {
     //   this.showModal('signInModal');
     // }
-    // const isLoggedIn = localStorage.getItem(AUTHENTICATION_TOKEN) &&
-    //   localStorage.getItem(AUTHENTICATION_TOKEN) !== "";
-    // this.setState({ isLoggedIn: isLoggedIn });
+    const isLoggedIn = localStorage.getItem(AUTHENTICATION_TOKEN) &&
+      localStorage.getItem(AUTHENTICATION_TOKEN) !== "";
+    this.setState({ isLoggedIn: isLoggedIn });
     // this.goToLogintokenExpired();
   }
 
-  goToLogintokenExpired = () => {
-    const token = getTokenFromLocalStorage(AUTHENTICATION_TOKEN);
-    try {
-      if (jwtDecode(token).exp < parseInt(Date.now() / 1000 + '')) {
-        this.showModal('signInModal');
-      }
-    } catch{
-      if (this.state.isLoggedIn) {
-        this.handleLogOut();
-      }
-    }
-  }
+  // goToLogintokenExpired = () => {
+  //   const token = getTokenFromLocalStorage(AUTHENTICATION_TOKEN);
+  //   try {
+  //     if (jwtDecode(token).exp < parseInt(Date.now() / 1000 + '')) {
+  //       this.showModal('signInModal');
+  //     }
+  //   } catch{
+  //     if (this.state.isLoggedIn) {
+  //       this.handleLogOut();
+  //     }
+  //   }
+  // }
 
   handleLogOut = () => {
     this.setState({ isLoggedIn: false });
@@ -144,7 +144,7 @@ class Header extends React.Component<any, any> {
             <Navbar.Collapse id="basic-navbar-nav" className={styles.appmenufield}>
               <Nav className="ml-auto">
                 <Nav.Link onClick={() => this.handleRoute('add-package')}>Create a Package</Nav.Link>
-               
+
                 {!this.state.isLoggedIn && <Nav.Link onClick={() => this.showModal('signInModal')} className={styles.appLogin}>Login</Nav.Link>}              </Nav>
               {!this.state.isLoggedIn && <Nav.Link onClick={() => this.showModal('signUpModal')} className={styles.appLogin}>Create Account</Nav.Link>}
               {this.state.isLoggedIn &&

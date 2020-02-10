@@ -20,6 +20,7 @@ import closedEye from '../../../assets/images/closedEye.svg';
 import { SignInState, stateProps, PropsFromDispatch } from './SignIn.interface';
 import { history } from '../../../utils/history';
 import { setTOLocalStorage } from '../../../utils/localStorage';
+import { AUTHENTICATION_TOKEN } from '../../../constants/constants';
 
 
 class SignInModal extends React.Component<any, SignInState> {
@@ -41,7 +42,7 @@ class SignInModal extends React.Component<any, SignInState> {
     if (this.props.isLoading != prevProps.isLoading) {
       if (this.props.isSignInSuccess) {
         setTOLocalStorage('ROLE',this.props.message.role);
-        setTOLocalStorage('TOKEN',this.props.message.token);
+        setTOLocalStorage(AUTHENTICATION_TOKEN,this.props.message.token);
         this.props.handleActionResponse('isLoggedIn', true);
         this.props.handleCloseModal('signInModal');
       } else {

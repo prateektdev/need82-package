@@ -31,7 +31,7 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
       page: 0,
       category: '',
       tags: [],
-      rows: [{}],
+      details: [{}],
       isUpLoading: false,
       isLoading: false,
       filetype: null,
@@ -57,14 +57,26 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
     };
   }
 
-  nextPage = () => {
-    if (this.handleValidation()) {
-      this.setState(
-        {
-          page: this.state.page + 1
-        }
-      );
+  handleDetails = (event) => {
+    let rows = [];
+    for (var k = 0; k < event.target.value; k++) {
+      rows.push({});
     }
+    this.setState(
+      {
+        details: rows
+      }
+    );
+  }
+
+  nextPage = () => {
+    // if (this.handleValidation()) {
+    this.setState(
+      {
+        page: this.state.page + 1,
+      }
+    );
+    // }
   };
 
   previousPage = () => {
@@ -96,7 +108,7 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
     };
     reader.readAsDataURL(event.target.files[0]);
     const formData = new FormData();
-    formData.append('file',event.target.files[0])
+    formData.append('file', event.target.files[0])
     // const formData = {
     //   file: form,
     //   fileType: fileType
@@ -105,30 +117,17 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
   }
 
   handleSubmit = (): void => {
-      this.props.handleSubmit();
+    this.props.handleSubmit();
   }
 
-  handleAddRow = () => {
-    this.setState((prevState) => {
-      const row = {};
-      return { rows: [...prevState.rows, row] };
-    });
-  };
-
-  handleRemoveRow = () => {
-    this.setState((prevState) => {
-      return { rows: prevState.rows.slice(1) };
-    });
-  };
-
-  handleMetadataChange = (event: any, index: number, name: string) => {
+  handleDetailsChange = (event: any, index: number, name: string) => {
     event.preventDefault();
-    let { rows } = Object.assign({}, this.state);
-    rows[index][name] = event.target.value;
+    let { details } = Object.assign({}, this.state);
+    details[index][name] = event.target.value;
     this.setState({
-      rows: rows
+      details: details
     }, () => { this.handleValidation() })
-    this.props.handleMetadataChange(rows);
+    this.props.handleMetadataChange(details);
   }
 
   handleValidation = () => {
@@ -164,14 +163,12 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
 
   render() {
 
-    const { page, errors, tags, category, rows, storeDescription, selectedFile,
+    const { page, errors, tags, category, details, storeDescription, selectedFile,
       imagePreviewUrl, mintSize, enableBatchMinting, mintOptions, isUpLoaded, showMintOptions } = this.state;
 
-    const { categories, isInitiating, isUpLoading, isVerifying,
-      isFileUploadInitiateSuccess, isFileUploadSuccess, isFileUploadVerifiedSuccess,
-      messageInitiating, messageUploading, messageVerifying,
-      errorInitiating, errorUploading, errorVerifying,
-      isLoading, isAddStoreSuccess } = this.props;
+    const { categories, isUpLoading,
+
+    } = this.props;
 
     return (
       <div>
@@ -209,18 +206,14 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
               errors={errors}
               categories={categories}
               isUpLoading={isUpLoading}
-              isFileUploadSuccess={isFileUploadSuccess}
-              messageUploading={messageUploading}
-              errorUploading={errorUploading}
               storeDescription={storeDescription}
               handleEditorStateChange={this.handleEditorStateChange}
               selectedFile={selectedFile}
               imagePreviewUrl={imagePreviewUrl}
               fileChangedHandler={this.fileChangedHandler}
-              rows={rows}
-              handleAddRow={this.handleAddRow}
-              handleRemoveRow={this.handleRemoveRow}
+              details={details}
               onSubmit={this.nextPage}
+              handleDetails={this.handleDetails}
             />
           }
           {
@@ -236,14 +229,9 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
               imagePreviewUrl={imagePreviewUrl}
               fileChangedHandler={this.fileChangedHandler}
               previousPage={this.previousPage}
-              rows={rows}
-              handleAddRow={this.handleAddRow}
-              handleRemoveRow={this.handleRemoveRow}
-              handleMetadataChange={this.handleMetadataChange}
-              mintSize={mintSize}
-              mintOptions={mintOptions}
-              enableBatchMinting={enableBatchMinting}
+              details={details}
               onSubmit={this.handleSubmit}
+              handleDetailsChange={this.handleDetailsChange}
             />
           }
         </div>
@@ -267,7 +255,7 @@ const mapStateToProps = (state: stateProps) => ({
 const mapDispatchToProps: PropsFromDispatch = {
   addStore: addStoreAction,
   onSubmit: addStoreAction,
-  uploadFile : uploadFileAction,
+  uploadFile: uploadFileAction,
   handleImageChange: selectedKey => change('CreatePackageForm', 'image_url', selectedKey),
   handleEditorStateChange: data => change('CreatePackageForm', 'description', data)
 }

@@ -20,7 +20,7 @@ class Step1 extends React.Component<any, any> {
 
   render() {
     const { imagePreviewUrl, storeDescription, handleEditorStateChange, fileChangedHandler,
-      isInitiating, isUpLoading, isVerifying, } = this.props;
+      isInitiating, isUpLoading, isVerifying,handleDetails } = this.props;
 
     let imagePreview;
     if (imagePreviewUrl) {
@@ -42,11 +42,11 @@ class Step1 extends React.Component<any, any> {
                 <Form onSubmit={this.handleSubmit}>
                   <TextField type="text" name="tourName" label="Package Name"
                     placeholder="Enter a title for your store" />
-                  <TextField type="number" name="noOfDays" label="Number of days"
+                  <TextField type="number" name="noOfDays" onChange={handleDetails} label="Number of days"
                     placeholder="Enter number of days in the package" />
                   <TextField type="number" name="noOfNights" label="Number of nights"
                     placeholder="Enter number of nights in the package" />
-                  <TextField type="text" name="price" label="Price"
+                  <TextField type="number" name="price" label="Price"
                     placeholder="Enter price of the package" />
                   <br />
                   <Form.Group controlId="formBasicEmail">

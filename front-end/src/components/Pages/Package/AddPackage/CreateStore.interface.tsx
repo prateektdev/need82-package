@@ -12,7 +12,7 @@ export interface CreateStoredataState {
   category: string,
   tags: Array<string>,
   editorState: any,
-  rows: Array<any>,
+  details: Array<any>,
   selectedFile: any,
   imagePreviewUrl: string,
   filetype: any,

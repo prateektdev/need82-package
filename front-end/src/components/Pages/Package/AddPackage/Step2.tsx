@@ -14,6 +14,13 @@ import { BatchMintComponent } from './component/BatchMint';
 import { MetaDataComponent } from './component/MetaData';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
 
 class Step2 extends React.Component<any, CreateStoreStepState> {
 
@@ -32,9 +39,7 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
   };
 
   render() {
-    const { category, categories, imagePreviewUrl, rows, handleAddRow, handleCategoryChange, mintSize, fileChangedHandler, enableBatchMinting, previousPage,
-      handleCheckClick, handleMintSize, handleMetadataChange, handleRemoveRow, mintOptions,
-      storeDescription, handleEditorStateChange } = this.props;
+    const { imagePreviewUrl, details, previousPage, fileChangedHandler, handleDetailsChange } = this.props;
     let imagePreview;
     if (imagePreviewUrl) {
       imagePreview =
@@ -44,7 +49,6 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
           </div>
         );
     }
-    console.log(this.props)
     return (
       <div>
         <div className={styles.appSmartcontract}>
@@ -56,39 +60,70 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
                 <Form onSubmit={(formData) => this.handleSubmit(formData)}>
                   <TextField type="text" name="tourName" label="Package Name"
                     placeholder="Enter a title for your store" />
-                  <TextField type="number" name="noOfDays" label="Number of days"
-                    placeholder="Enter number of days in the package" />
-                  <TextField type="number" name="noOfNights" label="Number of nights"
-                    placeholder="Enter number of nights in the package" />
-                  <TextField type="text" name="price" label="Price"
-                    placeholder="Enter price of the package" />
-                  <Form.Group controlId="formBasicEmail">
-                    <div className={styles.appMetadata}>
-                      <h2>Other Metadata</h2>
-                      <span>Add extra data on your token (maximun of 3 data allowed)</span>
-                      <MetaDataComponent
-                        rows={rows}
-                        disabled={false}
-                        handleAddRow={handleAddRow}
-                        handleMetadataChange={handleMetadataChange}
-                        handleRemoveRow={handleRemoveRow}
-                      />
+                  {
+                    details.map((detail, index) => {
 
-                    </div>
-                  </Form.Group>
-                  <p>Package description</p>
-                  <CKEditor
-                    editor={ClassicEditor}
-                    disabled={true}
-                    config={{
-                      toolbar: ['bold', 'italic', 'bulletedList', 'numberedList']
-                    }}
-                    data={storeDescription}
-                    onChange={(event, editor) => {
-                      handleEditorStateChange(editor.getData())
-                    }}
+                      return <Accordion allowMultipleExpanded={true} allowZeroExpanded={true} key={index} >
+                        <AccordionItem> <AccordionItemHeading>
+                          <AccordionItemButton>
+                            <strong>Day {index + 1}</strong>
+                          </AccordionItemButton>
+                        </AccordionItemHeading>
+                          <AccordionItemPanel>
+                            <div>
+                              <br />
+                              <div className="row">
+                                <Form.Group as={Row}>
+                                  <Form.Label>Itenary</Form.Label>
+                                  <Form.Control type="text" value={detail.itenary} name="itenary" onChange={handleDetailsChange}></Form.Control>
+                                </Form.Group>
+                                <Form.Group as={Row}>
+                                  <Form.Label>Description</Form.Label>
+                                  <Form.Control type="text" value={detail.description} name="description" onChange={handleDetailsChange}></Form.Control>
+                                </Form.Group>
+                                <Form.Group as={Row}>
+                                  <Form.Label>Day</Form.Label>
+                                  <Form.Control type="number" value={detail.day} name="day" onChange={handleDetailsChange}></Form.Control>
+                                </Form.Group>
+                                <Form.Group as={Row}>
+                                  <Form.Label>Price</Form.Label>
+                                  <Form.Control type="number" value={detail.price} name="price" onChange={handleDetailsChange} ></Form.Control>
+                                </Form.Group>
 
-                  />
+                                <Form.Group controlId="formBasicEmail">
+                                  <Form.Label className={styles.appFormlabel}>
+                                    Upload cover photo for Package <img src={info} className="img-fluid" />
+                                  </Form.Label>
+                                  <Form.Text className="text-muted">
+                                    <img src={info} className="img-fluid" />
+                                    Upload preview image for your package
+                    </Form.Text>
+                                </Form.Group>
+                                <div>
+                                  <div className={styles.appChoosephotoblock}>
+                                    <div className={styles.appImageuploader}>
+                                      <Button>Choose PHOTO</Button>
+                                      <span>No photo chosen</span>
+                                      <input type="file" accept="image/*,video/*,.pdf," name="avatar"
+                                        onChange={fileChangedHandler} />
+                                    </div>
+                                  </div>
+                                  {/* <div className={styles.appImagepreview}>
+                                    <div>
+                                      {imagePreview}
+
+                                    </div>
+                                  </div> */}
+
+                                </div>
+                              </div></div>
+                          </AccordionItemPanel>
+                        </AccordionItem>
+                      </Accordion>
+                    })
+
+                  }
+
                   <div className={styles.appBtnfield}>
                     <Button type="button" variant="primary" className={styles.appprevbtn}
                       onClick={previousPage}>

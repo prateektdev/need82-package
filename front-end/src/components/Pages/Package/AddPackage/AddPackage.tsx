@@ -252,8 +252,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
               mintSize={mintSize}
               mintOptions={mintOptions}
               enableBatchMinting={enableBatchMinting}
-              handleCheckClick={this.handleCheckClick}
-              handleMintSize={this.handleMintSize}
               onSubmit={this.nextPage}
             />
           }
@@ -277,7 +275,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
               mintSize={mintSize}
               mintOptions={mintOptions}
               enableBatchMinting={enableBatchMinting}
-              handleMintSize={this.handleMintSize}
               onSubmit={this.handleSubmit}
             />
           }

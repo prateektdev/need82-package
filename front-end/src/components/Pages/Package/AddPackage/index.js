@@ -1,2 +1,2 @@
-import CreateStore from "./CreateStore";
-export default CreateStore;
+import AddPackage from "./AddPackage";
+export default AddPackage;

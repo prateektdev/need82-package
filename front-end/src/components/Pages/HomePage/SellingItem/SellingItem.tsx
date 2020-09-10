@@ -10,7 +10,7 @@ import {
 }
   from '../../../../actions/store.actions';
 import { history } from '../../../../utils/history';
-
+import { filePath } from '../../../../constants/config';
 class SellingItem extends React.Component<any, StoreState>  {
   constructor(props) {
     super(props);
@@ -29,7 +29,7 @@ class SellingItem extends React.Component<any, StoreState>  {
   componentDidUpdate(prevProps) {
     if (this.props.message !== prevProps.message) {
       this.setState({
-        stores: this.props.message.content,
+        stores: this.props.message,
         pagination: this.props.message.metadata
       });
     }
@@ -53,8 +53,8 @@ class SellingItem extends React.Component<any, StoreState>  {
       });
   };
 
-  goToStores = () => {
-    history.push("/browse/category/Collectibles", { showItems: true });
+  goToPackages = () => {
+    history.push("/packages", { showItems: true });
   }
 
   componentDidMount() {
@@ -84,8 +84,8 @@ class SellingItem extends React.Component<any, StoreState>  {
     return (
       <div className={styles.appViewsection}>
         <div className={styles.appMainheadingfield}>
-          <h3 className="float-left">Top selling Stores</h3>
-          <a className="float-right" onClick={this.goToStores}>See all
+          <h3 className="float-left">Top selling packages</h3>
+          <a className="float-right" onClick={this.goToPackages}>See all
        <img src={rightarrow} className="img-fluid" />
           </a>
         </div>
@@ -93,9 +93,9 @@ class SellingItem extends React.Component<any, StoreState>  {
           {
             stores.map((store, index) => {
               return (<div className={styles.appItemfield} key={index}>
-                <img src={store.cover_image} className="img-fluid" />
-                <h4>{store.title}</h4>
-                <div className={styles.appLabelfiedl}><span>Owner:</span>{store.owner_username}</div>
+                {store.imageUrl && <img src={filePath + store.imageUrl} alt="img-package" className="img-fluid" />}
+                <h4>{store.tourName}</h4>
+                <div className={styles.appLabelfiedl}><span>Price:</span>{store.price}</div>
               </div>);
             })
           }

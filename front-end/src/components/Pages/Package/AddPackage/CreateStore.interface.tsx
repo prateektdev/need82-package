@@ -9,8 +9,6 @@ import {
 
 export interface CreateStoredataState {
   page: number,
-  category: string,
-  tags: Array<string>,
   editorState: any,
   details: Array<any>,
   selectedFile: any,
@@ -48,12 +46,7 @@ export interface stateProps {
     isLoading: boolean;
     isAddStoreSuccess: boolean;
   },
-  uploadFile: {
-    isUpLoaded: boolean;
-    isFileUploadSuccess: boolean;
-    errorUploading: string;
-    messageUploading: any;
-  }
+  uploadFile: any
 }
 
 
@@ -62,6 +55,7 @@ export interface PropsFromDispatch {
   uploadFile: typeof uploadFileAction,
   handleImageChange: Function,
   handleEditorStateChange: Function,
+  handleMetadataChange: Function,
   onSubmit: Function
 }
 

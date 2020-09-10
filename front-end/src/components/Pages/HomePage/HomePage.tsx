@@ -79,8 +79,8 @@ class HomePage extends React.Component<any, any> {
               <Card className={styles.appCardblock}>PLACE YOUR ADVERT HERE</Card>
             </Col>
           </Row>
-          {/* <ViewItem />
-          <SellingItem /> */}
+          {/* <ViewItem /> */}
+          <SellingItem />
         </Container>
        
         <Footer></Footer>

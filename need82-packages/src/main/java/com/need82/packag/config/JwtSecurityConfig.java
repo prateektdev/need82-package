@@ -110,7 +110,7 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.cors().and().csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "**/user/**").permitAll()
+		http.cors().and().csrf().disable().authorizeRequests().antMatchers("**/user/**").permitAll()
 				.antMatchers(HttpMethod.OPTIONS, "**/api/**").permitAll().antMatchers(HttpMethod.GET, "**/api/**")
 				.authenticated().antMatchers(HttpMethod.POST, "**/api/**").authenticated()
 				.antMatchers(HttpMethod.PUT, "**/api/**").authenticated().antMatchers(HttpMethod.DELETE, "**/api/**")

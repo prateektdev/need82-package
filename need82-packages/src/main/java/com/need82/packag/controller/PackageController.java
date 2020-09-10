@@ -37,12 +37,11 @@ public class PackageController {
 
 	@Autowired
 	UserRepository userRepository;
-		
+
 	@Autowired
 	PackageServiceImpl packageService;
 
 	@GetMapping("/packages")
-	@PreAuthorize("hasRole('ADMIN') OR hasRole('AGENT')")
 	public List<PackageModel> getAllPackages() {
 		return packageRepository.findAll();
 	}
@@ -51,18 +50,20 @@ public class PackageController {
 	@PreAuthorize("hasRole('AGENT')")
 	public List<PackageModel> getMyPackages(Authentication authentication) {
 		System.out.println(authentication.getName());
-		User user=  userRepository.findByUsername(authentication.getName());
+		User user = userRepository.findByUsername(authentication.getName());
 		return packageRepository.findByCreatedBy(user);
 	}
-	
+
 	@PostMapping("/packages")
 	@PreAuthorize("hasRole('AGENT')")
-	public BaseResponse createPackage(@RequestBody PackageModel packageModel) {
+	public BaseResponse createPackage(@RequestBody PackageModel packageModel, Authentication authentication) {
+		User user = userRepository.findByUsername(authentication.getName());
+		packageModel.setCreatedBy(user);
 		System.out.println(packageModel.toString());
 		BaseResponse response = packageService.savePackage(packageModel);
 		System.out.println("package : " + packageModel.toString());
 		return response;
-		
+
 	}
 
 	@GetMapping("/packages/{id}")

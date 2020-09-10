@@ -29,8 +29,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
     super(props);
     this.state = {
       page: 0,
-      category: '',
-      tags: [],
       details: [{}],
       isUpLoading: false,
       isLoading: false,
@@ -73,7 +71,7 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
     // if (this.handleValidation()) {
     this.setState(
       {
-        page: this.state.page + 1,
+        page: this.state.page + 1
       }
     );
     // }
@@ -98,7 +96,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
     this.setState({
       selectedFile: event.target.files[0]
     });
-    this.props.handleImageChange(event.target.files[0]);
     const fileType = event.target.files[0].type;
     let reader = new FileReader();
     reader.onloadend = () => {
@@ -122,7 +119,7 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
 
   handleDetailsChange = (event: any, index: number, name: string) => {
     event.preventDefault();
-    let { details } = Object.assign({}, this.state);
+    let details = Object.assign([], this.state.details);
     details[index][name] = event.target.value;
     this.setState({
       details: details
@@ -156,16 +153,15 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.messageInitiating !== prevProps.messageInitiating) {
-      this.props.handleImageChange(this.props.messageInitiating.path);
+    console.log('this.props.upload : ',this.props.upload)
+    if (this.props.upload !== prevProps.upload) {
+        this.props.handleImageChange(this.props.upload.message.message);
     }
   }
 
   render() {
 
-    const { page, errors, tags, category, details, storeDescription, selectedFile,
-      imagePreviewUrl, mintSize, enableBatchMinting, mintOptions, isUpLoaded, showMintOptions } = this.state;
-
+    const { page, errors, details, storeDescription, selectedFile, imagePreviewUrl } = this.state;
     const { categories, isUpLoading,
 
     } = this.props;
@@ -184,10 +180,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
                 <div className={styles.appSmartcreate}>
                   <img src={homemain} className="img-fluid" />
                   <h3>Create a package  </h3>
-                  <p>
-                    To start selling your items, you need a store to put these items.
-                    so create a store and add your items to list for sale
-                 </p>
                 </div>
                 <div className={styles.appProgressbar}>
                   <ul className={styles.progressBar}>
@@ -221,8 +213,6 @@ class AddPackage extends React.Component<any, CreateStoredataState> {
             <Step2
               errors={errors}
               categories={categories}
-              category={category}
-              tags={tags}
               storeDescription={storeDescription}
               handleEditorStateChange={this.handleEditorStateChange}
               selectedFile={selectedFile}
@@ -246,18 +236,16 @@ const mapStateToProps = (state: stateProps) => ({
   message: state.addStore.message,
   isAddStoreSuccess: state.addStore.isAddStoreSuccess,
   isLoading: state.addStore.isLoading,
-  isUpLoaded: state.uploadFile.isUpLoaded,
-  isFileUploadSuccess: state.uploadFile.isFileUploadSuccess,
-  errorUploading: state.uploadFile.errorUploading,
-  messageUploading: state.uploadFile.messageUploading,
+  upload: state.uploadFile,
 });
 
 const mapDispatchToProps: PropsFromDispatch = {
   addStore: addStoreAction,
   onSubmit: addStoreAction,
   uploadFile: uploadFileAction,
-  handleImageChange: selectedKey => change('CreatePackageForm', 'image_url', selectedKey),
-  handleEditorStateChange: data => change('CreatePackageForm', 'description', data)
+  handleImageChange: selectedKey => change('CreatePackageForm', 'imageUrl', selectedKey),
+  handleEditorStateChange: data => change('CreatePackageForm', 'description', data),
+  handleMetadataChange: details => change('CreatePackageForm', 'details', details),
 }
 
 const formConnected = reduxForm({

@@ -8,10 +8,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import TextField from '../../../Forms/TextField';
 import { CreateStoreStepState } from './CreateStore.interface';
 import { reduxForm } from 'redux-form';
-import Category from './component/Category';
 import 'react-tagsinput/react-tagsinput.css';
-import { BatchMintComponent } from './component/BatchMint';
-import { MetaDataComponent } from './component/MetaData';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {
@@ -63,7 +60,7 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
                   {
                     details.map((detail, index) => {
 
-                      return <Accordion allowMultipleExpanded={true} allowZeroExpanded={true} key={index} >
+                      return <div className="details-accordian"><Accordion allowMultipleExpanded={true} allowZeroExpanded={true} key={index} >
                         <AccordionItem> <AccordionItemHeading>
                           <AccordionItemButton>
                             <strong>Day {index + 1}</strong>
@@ -71,35 +68,24 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
                         </AccordionItemHeading>
                           <AccordionItemPanel>
                             <div>
-                              <br />
-                              <div className="row">
-                                <Form.Group as={Row}>
+                              <div >
+                                <Form.Group>
                                   <Form.Label>Itenary</Form.Label>
-                                  <Form.Control type="text" value={detail.itenary} name="itenary" onChange={handleDetailsChange}></Form.Control>
+                                  <Form.Control type="text" value={detail.itenary} name="itenary" onChange={(event)=>handleDetailsChange(event,index,'itenary')}></Form.Control>
                                 </Form.Group>
-                                <Form.Group as={Row}>
+                                <Form.Group>
                                   <Form.Label>Description</Form.Label>
-                                  <Form.Control type="text" value={detail.description} name="description" onChange={handleDetailsChange}></Form.Control>
+                                  <Form.Control type="text" value={detail.description} name="description" onChange={(event)=>handleDetailsChange(event,index,'description')}></Form.Control>
                                 </Form.Group>
-                                <Form.Group as={Row}>
+                                <Form.Group>
                                   <Form.Label>Day</Form.Label>
-                                  <Form.Control type="number" value={detail.day} name="day" onChange={handleDetailsChange}></Form.Control>
+                                  <Form.Control type="number" value={detail.day} name="day" onChange={(event)=>handleDetailsChange(event,index,'day')}></Form.Control>
                                 </Form.Group>
-                                <Form.Group as={Row}>
+                                <Form.Group>
                                   <Form.Label>Price</Form.Label>
-                                  <Form.Control type="number" value={detail.price} name="price" onChange={handleDetailsChange} ></Form.Control>
+                                  <Form.Control type="number" value={detail.price} name="price" onChange={(event)=>handleDetailsChange(event,index,'price')} ></Form.Control>
                                 </Form.Group>
-
-                                <Form.Group controlId="formBasicEmail">
-                                  <Form.Label className={styles.appFormlabel}>
-                                    Upload cover photo for Package <img src={info} className="img-fluid" />
-                                  </Form.Label>
-                                  <Form.Text className="text-muted">
-                                    <img src={info} className="img-fluid" />
-                                    Upload preview image for your package
-                    </Form.Text>
-                                </Form.Group>
-                                <div>
+                                {/* <div>
                                   <div className={styles.appChoosephotoblock}>
                                     <div className={styles.appImageuploader}>
                                       <Button>Choose PHOTO</Button>
@@ -108,18 +94,28 @@ class Step2 extends React.Component<any, CreateStoreStepState> {
                                         onChange={fileChangedHandler} />
                                     </div>
                                   </div>
-                                  {/* <div className={styles.appImagepreview}>
+                                  <div className={styles.appImagepreview}>
                                     <div>
                                       {imagePreview}
-
                                     </div>
-                                  </div> */}
+                                  </div>
 
                                 </div>
+                                <Form.Group controlId="formBasicEmail">
+                                  <Form.Label className={styles.appFormlabel}>
+                                    Upload cover photo for Package <img src={info} className="img-fluid" />
+                                  </Form.Label>
+                                  <Form.Text className="text-muted">
+                                    <img src={info} className="img-fluid" />
+                                    Upload preview image for your package
+                    </Form.Text>
+                                </Form.Group> */}
+                                
                               </div></div>
                           </AccordionItemPanel>
                         </AccordionItem>
                       </Accordion>
+                      </div>
                     })
 
                   }

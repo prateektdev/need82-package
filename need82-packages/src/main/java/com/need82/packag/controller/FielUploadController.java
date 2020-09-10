@@ -1,5 +1,6 @@
 package com.need82.packag.controller;
 
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.need82.packag.utils.FileUpload;
 @RestController
 @RequestMapping("/api")
 public class FielUploadController {
+
 
 	// Save the uploaded file to this folder
 	private static String UPLOADED_FOLDER = "uploads/";
@@ -35,5 +37,7 @@ public class FielUploadController {
 	public String uploadStatus() {
 		return "uploadStatus";
 	}
+
+	
 
 }
